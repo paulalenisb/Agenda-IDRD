@@ -5,11 +5,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeStackNavigator, MiAgendaStackNavigation } from './src/components/StackNavigation';
 
-// const Stack = createStackNavigator();
-
 const Tab = createBottomTabNavigator()
 
 export default function App() {
+ 
   return (
     <NavigationContainer>{
       <Tab.Navigator>
