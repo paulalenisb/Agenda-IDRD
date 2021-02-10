@@ -9,6 +9,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoría": "Deporte",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -21,6 +22,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoría": "Recreación",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -33,6 +35,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoria": "Recreación",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -45,6 +48,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoría": "Actividad física",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -57,6 +61,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoría": "Recreación",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -69,6 +74,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoría": "Recreación",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -81,6 +87,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoría": "Recreación",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -93,6 +100,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoria": "Otros eventos",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -105,6 +113,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoria": "Otros eventos",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -117,6 +126,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoría": "Otros eventos",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -129,6 +139,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoria": "Recreación",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -141,6 +152,7 @@
         "Entrada": "Gratis",
         "Link": "https://www.facebook.com/IDRDBogota",
         "Categoría": "Recreación",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -153,6 +165,7 @@
         "Entrada": "Gratis",
         "Link": "www.idrd.gov.co",
         "Categoría": "Otros eventos",
+        "Público": "Todo Público",
         "Localidad": "Todas"
     },
     {
@@ -168,6 +181,10 @@
         "Entrada": "Gratis",
         "Link": "www.idrd.gov.co",
         "Categoría": "Actividad física",
+        "Público":  [
+            "Adolescencia",
+            "Adultez"
+        ],
         "Localidad": [
             "Tunjuelito",
             "Suba"
@@ -183,6 +200,10 @@
         "Entrada": "Gratis",
         "Link": "www.idrd.gov.co",
         "Categoría": "Deporte",
+        "Público":  [
+            "Adolescencia",
+            "Adultez"
+        ],
         "Localidad": "Todas"
     },
     {
@@ -202,6 +223,10 @@
         "Entrada": "Gratis",
         "Link": "www.idrd.gov.co",
         "Categoría": "Actividad física",
+        "Público":  [
+            "Adolescencia",
+            "Adultez"
+        ],
         "Localidad": [
             "Santa Fe",
             "San Cristóbal",
@@ -229,6 +254,10 @@
         "Entrada": "Gratis",
         "Link": "www.idrd.gov.co",
         "Categoría": "Actividad física",
+        "Público":  [
+            "Adolescencia",
+            "Adultez"
+        ],
         "Localidad": [
             "Usaquén",
             "Usme",
