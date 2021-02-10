@@ -1,0 +1,242 @@
+[
+    {
+        "Nombre": "Escuela de la Bicicleta",
+        "Descripción": "Escuela de la Bicicleta en Parques",
+        "Fecha": "2021-02-10",
+        "Hora inicio": "05:00:00 p.m.",
+        "Hora fin": "06:00:00 p.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoría": "Deporte",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Caminata Virtual",
+        "Descripción": "Caminata Virtual localidad de Fontibón",
+        "Fecha": "2021-02-12",
+        "Hora inicio": "10:00:00 a.m.",
+        "Hora fin": "11:00:00 a.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoría": "Recreación",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Caminata Virtual",
+        "Descripción": "Caminata Virtual Reconociendo las principales festividades en Bogotá",
+        "Fecha": "2021-02-14",
+        "Hora inicio": "10:00:00 a.m.",
+        "Hora fin": "11:00:00 a.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoria": "Recreación",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Recreovía",
+        "Descripción": "Sesion de actividad fisica, Online, Recreovia Martes 7:30 am, 4:00 pm y 6:00 pm comunidad general",
+        "Fecha": "2021-02-09",
+        "Hora inicio": "07:30:00 a.m.",
+        "Hora fin": "07:30:00 p.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoría": "Actividad física",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Caminata Virtual",
+        "Descripción": "Caminata Virtual Centro Histórico",
+        "Fecha": "2021-02-09",
+        "Hora inicio": "09:30:00 a.m.",
+        "Hora fin": "10:30:00 a.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoría": "Recreación",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Caminata Virtual",
+        "Descripción": "Caminata Virtual Monserrate, conociendo el Sendero y la historia del lugar",
+        "Fecha": "2021-02-08",
+        "Hora inicio": "07:30:00 a.m.",
+        "Hora fin": "08:30:00 a.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoría": "Recreación",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Caminata Virtual",
+        "Descripción": "Caminata Virtual Páramo de Sumapaz",
+        "Fecha": "2021-02-13",
+        "Hora inicio": "10:00:00 a.m.",
+        "Hora fin": "11:30:00 a.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoría": "Recreación",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Protocolos de Bioseguridad",
+        "Descripcion": "Inducción sobre los elementos de protección personal y los Protocolos de Bioseguridad",
+        "Fecha": "2021-02-09",
+        "Hora inicio": "07:00:00 a.m.",
+        "Hora fin": "08:30:00 a.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoria": "Otros eventos",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Protocolos de Bioseguridad",
+        "Descripcion": "Inducción sobre los elementos de protección personal y los Protocolos de Bioseguridad",
+        "Fecha": "2021-02-10",
+        "Hora inicio": "09:00:00 a.m.",
+        "Hora fin": "10:00:00 a.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoria": "Otros eventos",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Protocolos de Bioseguridad",
+        "Descripción": "Inducción sobre los elementos de protección personal y los Protocolos de Bioseguridad",
+        "Fecha": "2021-02-11",
+        "Hora inicio": "03:00:00 p.m.",
+        "Hora fin": "04:00:00 p.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoría": "Otros eventos",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Caminata Virtual",
+        "Descripcion": "Caminata Virtual Quebrada Las Delicias",
+        "Fecha": "2021-02-12",
+        "Hora inicio": "10:20:00 a.m.",
+        "Hora fin": "12:00:00 p.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoria": "Recreación",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Caminata Virtual",
+        "Descripción": "Caminata Virtual San Francisco - Vicacha",
+        "Fecha": "2021-02-08",
+        "Hora inicio": "10:00:00 a.m.",
+        "Hora fin": "01:00:00 p.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "https://www.facebook.com/IDRDBogota",
+        "Categoría": "Recreación",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Servicio Social Estudiantil Obligatorio ( SSEO)",
+        "Descripción": "Presentación, envío documentación e inicio del Servicio Social Estudiantil Obligatorio a 21 instituciones interesadas en realizarlo con actividad física",
+        "Fecha": "2021-02-08",
+        "Hora inicio": "10:00:00 a.m.",
+        "Hora fin": "01:00:00 p.m.",
+        "Lugar": "Online",
+        "Entrada": "Gratis",
+        "Link": "www.idrd.gov.co",
+        "Categoría": "Otros eventos",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Recreovía",
+        "Descripción": "Sesiones de actividad física en los parques de 8:00 a.m. a 1:00 p.m.",
+        "Fecha": "2021-02-14",
+        "Hora inicio": "08:00:00 a.m.",
+        "Hora fin": "01:00:00 p.m.",
+        "Lugar": [
+            "Parque Metropilitano El Tunal",
+            "Parque Zonal Fontanar del Rio"
+        ],
+        "Entrada": "Gratis",
+        "Link": "www.idrd.gov.co",
+        "Categoría": "Actividad física",
+        "Localidad": [
+            "Tunjuelito",
+            "Suba"
+        ]
+    },
+    {
+        "Nombre": "Ciclovía",
+        "Descripción": "Ciclovía Dominical (Sujeto a cambios por orden distrital)",
+        "Fecha": "2021-02-14",
+        "Hora inicio": "07:00:00 a.m.",
+        "Hora fin": "02:00:00 p.m.",
+        "Lugar": "Corredores de Bogotá",
+        "Entrada": "Gratis",
+        "Link": "www.idrd.gov.co",
+        "Categoría": "Deporte",
+        "Localidad": "Todas"
+    },
+    {
+        "Nombre": "Recreovía",
+        "Descripción": "Sesiones de actividad física en Parques de 7:00 am a 10:00 am",
+        "Fecha": "2021-02-09",
+        "Hora inicio": "07:00:00 a.m.",
+        "Hora fin": "10:00:00 a.m.",
+        "Lugar": [
+            "Parque Las Cruces",
+            "La Victoria",
+            "Parque Serena",
+            "Parque Eduardo Santos",
+            "Parque Molinos II",
+            "sector Parque Candelaria la nueva"
+        ],
+        "Entrada": "Gratis",
+        "Link": "www.idrd.gov.co",
+        "Categoría": "Actividad física",
+        "Localidad": [
+            "Santa Fe",
+            "San Cristóbal",
+            "Engativá",
+            "Mártires",
+            "Rafael Uribe Uribe",
+            "Ciudad Bolívar"
+        ]
+    },
+    {
+        "Nombre": "Recreovía",
+        "Descripción": "Sesiones de actividad física en Parques de 7:00 am a 10:00 am",
+        "Fecha": "2021-02-12",
+        "Hora inicio": "07:00:00 a.m.",
+        "Hora fin": "10:00:00 a.m.",
+        "Lugar": [
+            "Parque Alta Blanca",
+            "La Andrea",
+            "Parque Naranjos",
+            "Parque Timiza",
+            "Parque San Andrés",
+            "Parque La Gaitana",
+            "Polideportivo El Jazmín"
+        ],
+        "Entrada": "Gratis",
+        "Link": "www.idrd.gov.co",
+        "Categoría": "Actividad física",
+        "Localidad": [
+            "Usaquén",
+            "Usme",
+            "Bosa",
+            "Kennedy",
+            "Engativá",
+            "Suba",
+            "Puente Aranda"
+        ]
+    }
+]
