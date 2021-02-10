@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
-import { Container, Content } from 'native-base';
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { Container, Content, Button } from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function Evento() {
@@ -20,14 +20,11 @@ export default function Evento() {
         </View>
 
         <View style={{ flexDirection: 'row', marginTop: -100, marginLeft: 50 }}>
-          <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 20 }} >FEB 10</Text>
+          <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 20,  textAlign: 'center', fontWeight: 600 }} >FEB 10</Text>
           <Text style={{ width: 100, height: 50 }}> Míercoles 19:30 </Text>
-          <Button
-            title="Añadir"
-            color="#59FBDA"
-            //disabled                     
-            onPress={() => Alert.alert('Cannot press this one')}
-          />
+          <Button rounded style={{ backgroundColor: '#59FBDA'}} >
+            <Text style={{ width: 100,  color: '#584799', fontSize: 20 , textAlign: 'center', fontWeight: 600}}>Añadir</Text>
+          </Button>
         </View>
 
         <Content style={{ marginLeft: 40, marginTop: 20 }}>
@@ -40,12 +37,12 @@ export default function Evento() {
           </Text>
 
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
-          <MaterialIcons name="place" size={15} color="#59FBDA" />
-            <Text style={{ width: 100}}>Online</Text> 
-              <MaterialIcons name="attach-money" size={15} color="#59FBDA" />
-            <Text style={{ width: 100}}>Gratis</Text>
+            <MaterialIcons name="place" size={15} color="#59FBDA" />
+            <Text style={{ width: 100 }}>Online</Text>
+            <MaterialIcons name="attach-money" size={15} color="#59FBDA" />
+            <Text style={{ width: 100 }}>Gratis</Text>
             <MaterialIcons name="group" size={15} color="#59FBDA" />
-            <Text style={{ width: 100}}>Todo público</Text>
+            <Text style={{ width: 100 }}>Todo público</Text>
           </View>
 
         </Content>
