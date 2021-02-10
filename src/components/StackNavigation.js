@@ -27,7 +27,7 @@ const HomeStackNavigator = () => {
   const MiAgendaStackNavigation = () => {
       return (
         <Stack.Navigator screenOptions={screenOptionStyle}>
-        <Stack.Screen name="Mi Agenda" component={MiAgenda} />
+        <Stack.Screen name="." component={MiAgenda} />
       </Stack.Navigator>
       )
   }
