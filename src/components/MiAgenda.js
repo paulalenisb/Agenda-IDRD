@@ -1,9 +1,25 @@
-import React from 'react';
+
+import React, { useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Container, Content, Header, H1, H2, H3, Card, CardItem, Left, Body, Right, Title } from 'native-base';
 import { Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
+
 export default function MiAgenda() {
+  const [state, setState] = useState();
+
+    const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("@storage_Key");
+        const eventsValues = JSON.parse(jsonValue);
+        setState(eventsValues.date);
+        alert(state);
+     
+    } catch (e) {
+      console.log("Error");
+    }
+  };
 
   return (
         <View style={{ backgroundColor: 'white' }}>
@@ -90,6 +106,8 @@ export default function MiAgenda() {
             // '2021-02-20': {marked: true, dotColor: 'red', activeOpacity: 0},
             // '2021-02-25': {disabled: true, disableTouchEvent: true}
           }}
+//                   markedDates={{
+//           [state]: { selected: true, marked: true, selectedColor: "blue" }
         />
 
         <H2 style={{ color:'#584799', fontWeight: 'bold', marginLeft: 20 }}>Próximos eventos</H2>
@@ -125,9 +143,4 @@ export default function MiAgenda() {
     )
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1, alignItems: 'center', justifyContent: 'center'
-//   },
-// });
 
