@@ -1,15 +1,41 @@
+
 import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView} from 'react-native';
 import {Picker,  Container, Content, CardItem, Left, Body, Button, Card, Title} from "native-base";
 const header= require('../../assets/Header.png'); 
+
+import data from '../../data/events.json'
+
+console.log(data.events);
+const dataEvents = data.events;
+
+const event = {
+  name: "Recorrido bicicleta",
+  date: "2021-02-23"
+}
+
+const storeData = async (value) => {
+  try {
+    const jsonValue = JSON.stringify(value)
+    await AsyncStorage.setItem('@storage_Key', jsonValue)
+  } catch (e) {
+    // saving error
+  }
+}
+
+const handlePressButton = () => {
+  alert("crear recordatorio")
+  storeData(event)
+}
+
 
 
 
 const CardEvent= ({objNavigate}) => {
   
   return (
-    <Container>
-      <Content>
+    <ScrollView>
         <Card style={{flex: 1, flexDirection: 'row'}}>
           <CardItem>
             <Left>
@@ -20,20 +46,22 @@ const CardEvent= ({objNavigate}) => {
           </CardItem>
           <CardItem style={{flex: 2, flexDirection: 'column'}}>
             <Body>
-            <Title style={{color: 'black', fontSize: 15}}>Recorrido virtual Monserrate</Title>
-            <Text style={{textAlign: 'justify', fontSize: 10}}>El cerro de Monserrate en Bogotá</Text>
+            <Title style={{color: 'black', fontSize: 15}}>{events.name}</Title>
+            <Text style={{textAlign: 'justify', fontSize: 10}}>{events.details}</Text>
             </Body>
             <Body style={{flex: 1, flexDirection: 'row'}}>
             <TouchableOpacity style ={stylesHome.boton} onPress={() => objNavigate.navigate('Evento')}>
-            <Text style={{ textAlign: 'center'}} >Ver más</Text></TouchableOpacity>
-            <TouchableOpacity style ={stylesHome.boton} onPress={()=> objNavigate.navigate('Mi agenda')}>
+            <Text style={{ textAlign: 'center'}}  >Ver más</Text></TouchableOpacity>
+//             <TouchableOpacity style ={stylesHome.boton} onPress={()=> objNavigate.navigate('Mi agenda')}>
+              <TouchableOpacity style ={stylesHome.boton} onPress={handlePressButton}>
             <Text style={{ textAlign: 'center'}}>Reservar</Text>
       </TouchableOpacity>
             </Body>
           </CardItem>
         </Card>
-      </Content>
-    </Container>
+</ScrollView>
+            
+            
   );
 } 
 
@@ -59,12 +87,23 @@ export default function Home({navigation}) {
       </Picker>
       </View>
       <View>
-      <CardEvent objNavigate={navigation}/>
-      <CardEvent objNavigate={navigation}/>
+          <Content padder>{
+        dataEvents.map((events, index) => {
+            <CardEvent objNavigate={navigation}
+            events={events}/>
+            
+        }
+
+        )
+      }
+
+      </Content>
+
+      
       </View>
     </ScrollView>
     )
-}
+
 
 
 const stylesHome = StyleSheet.create({
