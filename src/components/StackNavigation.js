@@ -1,9 +1,9 @@
 import React from 'React';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Home from './Home'
 import MiAgenda from './MiAgenda';
 import Evento from './Evento';
+import Home from './Home';
 
 const Stack = createStackNavigator();
 

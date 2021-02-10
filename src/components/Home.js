@@ -1,10 +1,43 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView} from 'react-native';
-import {Picker,  Container, Content, CardItem, Left, Body, Button, Card, Title } from "native-base";
+import {Picker,  Container, Content, CardItem, Left, Body, Button, Card, Title} from "native-base";
 const header= require('../../assets/Header.png'); 
 
 
-export default function Home() {
+
+const CardEvent= ({objNavigate}) => {
+  
+  return (
+    <Container>
+      <Content>
+        <Card style={{flex: 1, flexDirection: 'row'}}>
+          <CardItem>
+            <Left>
+              <Body>
+              <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Monserrate_Sanctuary.JPG/1200px-Monserrate_Sanctuary.JPG'}} style={{height: 50, width: 50, flex: 1, borderRadius:5}}/>
+              </Body>
+            </Left>
+          </CardItem>
+          <CardItem style={{flex: 2, flexDirection: 'column'}}>
+            <Body>
+            <Title style={{color: 'black', fontSize: 15}}>Recorrido virtual Monserrate</Title>
+            <Text style={{textAlign: 'justify', fontSize: 10}}>El cerro de Monserrate en Bogotá</Text>
+            </Body>
+            <Body style={{flex: 1, flexDirection: 'row'}}>
+            <TouchableOpacity style ={stylesHome.boton} onPress={() => objNavigate.navigate('Evento')}>
+            <Text style={{ textAlign: 'center'}} >Ver más</Text></TouchableOpacity>
+            <TouchableOpacity style ={stylesHome.boton} onPress={()=> objNavigate.navigate('Mi agenda')}>
+            <Text style={{ textAlign: 'center'}}>Reservar</Text>
+      </TouchableOpacity>
+            </Body>
+          </CardItem>
+        </Card>
+      </Content>
+    </Container>
+  );
+} 
+
+export default function Home({navigation}) {
   const [selectedValue, setSelectedValue] = useState("kennedy");
     return (
         <ScrollView>
@@ -13,8 +46,7 @@ export default function Home() {
       <Picker
         selectedValue={selectedValue}
         style={stylesHome.select} 
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-      >
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
         <Picker.Item label="Ubicación" value="java" />
         <Picker.Item label="Kennedy" value="js" />
       </Picker>
@@ -26,43 +58,14 @@ export default function Home() {
         <Picker.Item label="Caminatas" value="js" />
       </Picker>
       </View>
-      <CardEvent/>
-      <CardEvent/>
-      </ScrollView>
+      <View>
+      <CardEvent objNavigate={navigation}/>
+      <CardEvent objNavigate={navigation}/>
+      </View>
+    </ScrollView>
     )
 }
 
-const CardEvent= ({ navigation }) => {
-  
-    return (
-      <Container>
-        <Content>
-          <Card style={{flex: 1, flexDirection: 'row'}}>
-            <CardItem>
-              <Left>
-                <Body>
-                <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Monserrate_Sanctuary.JPG/1200px-Monserrate_Sanctuary.JPG'}} style={{height: 50, width: 50, flex: 1, borderRadius:5}}/>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem style={{flex: 2, flexDirection: 'column'}}>
-              <Body>
-              <Title style={{color: 'black', fontSize: 15}}>Recorrido virtual Monserrate</Title>
-              <Text style={{textAlign: 'justify', fontSize: 10}}>El cerro de Monserrate en Bogotá</Text>
-              </Body>
-              <Body style={{flex: 1, flexDirection: 'row'}}>
-              <TouchableOpacity style ={stylesHome.boton} onPress={() => navigation.navigate('Evento')}>
-          <Text style={{ textAlign: 'center'}} >Ver más</Text></TouchableOpacity>
-        <TouchableOpacity style ={stylesHome.boton} onPress={()=> navigation.navigate('Mi agenda')}>
-          <Text style={{ textAlign: 'center'}}>Reservar</Text>
-        </TouchableOpacity>
-              </Body>
-            </CardItem>
-          </Card>
-        </Content>
-      </Container>
-    );
-  } 
 
 const stylesHome = StyleSheet.create({
     select: {
@@ -86,6 +89,6 @@ const stylesHome = StyleSheet.create({
   containerSelect: {
     flex: 1,
     flexDirection: 'row',
-   marginTop: 20
+   margin: 15
   }
  });
