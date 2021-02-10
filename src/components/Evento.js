@@ -10,7 +10,7 @@ export default function Evento() {
       <Container>
         <Image
           style={styles.eventImage}
-          resizeMode={'cover'}
+          resizeModel={'cover'}
           source={{
             uri: 'https://dam.tbg.com.mx/content/dam/tbg/mexico/natgeo/mx/traveler/lugares/17/10/12/santuario-de-monserrate-bogota.jpg.imgo.jpg',
           }}
