@@ -11,10 +11,11 @@ const Tab = createBottomTabNavigator()
 
 export default function App() {
   return (
-    <NavigationContainer>{
+    <NavigationContainer >{
+      
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeStackNavigator} />
-        <Tab.Screen name="Contact" component={MiAgendaStackNavigation} />
+        <Tab.Screen name="Mi Agenda" component={MiAgendaStackNavigation} />
       </Tab.Navigator>
 
       }</NavigationContainer>
@@ -23,11 +24,11 @@ export default function App() {
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
