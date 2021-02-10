@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 
 const screenOptionStyle = {
     headerStyle: {
-      backgroundColor: "#9AC4F8",
+      backgroundColor: "rgba(88, 71, 153, 1)",
     },
     headerTintColor: "white",
     headerBackTitle: "Back",
@@ -18,7 +18,7 @@ const screenOptionStyle = {
 const HomeStackNavigator = () => {
     return (
       <Stack.Navigator screenOptions={screenOptionStyle}>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Agenda IDRD" component={Home} />
         <Stack.Screen name="Evento" component={Evento} />
       </Stack.Navigator>
     );
