@@ -49,15 +49,15 @@ export default function Evento(index) {
           {dataEvents[idx].link}</Text>
 
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
-            <MaterialIcons name="place" size={10} color="#59FBDA" />
+            <MaterialIcons name="place" size={15} color="#59FBDA" />
             <Text style={{ width: 100 }}>
             {dataEvents[idx].place}
             </Text>
-            <MaterialIcons name="attach-money" size={10} color="#59FBDA" />
+            <MaterialIcons name="attach-money" size={15} color="#59FBDA" />
             <Text style={{ width: 100 }}>
             {dataEvents[idx].access}
             </Text>
-            <MaterialIcons name="group" size={10} color="#59FBDA" />
+            <MaterialIcons name="group" size={15} color="#59FBDA" />
             <Text style={{ width: 100 }}>
             {dataEvents[idx].audience}
             </Text>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
 
   textImage: {
-    color: 'white',
+    color: 'black',
     fontSize: 20,
     fontWeight: 600,
     marginLeft: -100,
