@@ -29,8 +29,10 @@ export default function Evento(index) {
         </View>
 
         <View style={{ flexDirection: 'row', marginTop: -100, marginLeft: 30 }}>
-          <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 18, textAlign: 'center', fontWeight: '600', borderRadius: 10 }} >FEB 10</Text>
-         <Text  style={{ width: 100, height: 100, fontWeight: '600', fontSize: 18, marginLeft: 10 }}> {dataEvents[idx].date}, {dataEvents[idx].hour1} </Text>
+          <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 18, textAlign: 'center', fontWeight: '600', borderRadius: 10 }} >
+          {dataEvents[idx].date}
+          </Text>
+         <Text  style={{ width: 100, height: 100, fontWeight: '600', fontSize: 18, marginLeft: 10 }}> {dataEvents[idx].hour1} </Text>
           <Button rounded style={{ backgroundColor: '#59FBDA', marginLeft: 40 }} >
             <Text style={{ width: 100, color: '#584799', fontSize: 20, textAlign: 'center', fontWeight: '600' }}>Añadir</Text>
           </Button>

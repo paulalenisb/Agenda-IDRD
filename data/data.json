@@ -3,8 +3,8 @@
         {
             "name": "Escuela de la Bicicleta",
             "details": "Escuela de la Bicicleta en Parques",
-            "date": "2021-02-10",
-            "hour1": "05:00:00 p.m.",
+            "date": "FEB 10",
+            "hour1": "Miércoles 05:00 PM",
             "hour2": "06:00:00 p.m.",
             "place": "Online",
             "access": "Gratis",
@@ -17,8 +17,8 @@
         {
             "name": "Caminata Virtual",
             "details": "Caminata Virtual localidad de Fontibón",
-            "date": "2021-02-12",
-            "hour1": "10:00:00 a.m.",
+            "date": "FEB 12",
+            "hour1": "Viernes 10:00 AM",
             "hour2": "11:00:00 a.m.",
             "place": "Online",
             "access": "Gratis",
@@ -31,8 +31,8 @@
         {
             "name": "Caminata Virtual",
             "details": "Caminata Virtual: Principales festividades en Bogotá",
-            "date": "2021-02-14",
-            "hour1": "10:00:00 a.m.",
+            "date": "FEB 14",
+            "hour1": "Domingo 10:00 AM",
             "hour2": "11:00:00 a.m.",
             "place": "Online",
             "access": "Gratis",
@@ -45,8 +45,8 @@
         {
             "name": "Protocolos de Bioseguridad",
             "details": "Inducción sobre los elementos de protección personal y los Protocolos de Bioseguridad",
-            "date": "2021-02-09",
-            "hour1": "07:00:00 a.m.",
+            "date": "FEB 09",
+            "hour1": "Martes 07:00 AM",
             "hour2": "08:30:00 a.m.",
             "place": "Online",
             "access": "Gratis",
@@ -59,8 +59,8 @@
         {
             "name": "Protocolos de Bioseguridad",
             "details": "Inducción sobre los elementos de protección personal y los Protocolos de Bioseguridad",
-            "date": "2021-02-10",
-            "hour1": "09:00:00 a.m.",
+            "date": "FEB 10",
+            "hour1": "Miércoles 09:00 AM",
             "hour2": "10:00:00 a.m.",
             "place": "Online",
             "access": "Gratis",
@@ -73,8 +73,8 @@
         {
             "name": "Recreovía",
             "details": "Sesiones de actividad física en los parques de 8:00 a.m. a 1:00 p.m.",
-            "date": "2021-02-14",
-            "hour1": "08:00:00 a.m.",
+            "date": "FEB 14",
+            "hour1": "Domingo 08:00 AM",
             "hour2": "01:00:00 p.m.",
             "place": [
                 "Parque Metropolitano El Tunal",
@@ -96,8 +96,8 @@
         {
             "name": "Ciclovía",
             "details": "Ciclovía Dominical (Sujeto a cambios por orden distrital)",
-            "date": "2021-02-14",
-            "hour1": "07:00:00 a.m.",
+            "date": "FEB 14",
+            "hour1": "Domingo 07:00 AM",
             "hour2": "02:00:00 p.m.",
             "place": "Corredores de Bogotá",
             "access": "Gratis",
@@ -113,8 +113,8 @@
         {
             "name": "Recreovía",
             "details": "Sesiones de actividad física en Parques de 7:00 am a 10:00 am",
-            "date": "2021-02-09",
-            "hour1": "07:00:00 a.m.",
+            "date": "FEB 09",
+            "hour1": "Martes 07:00 AM",
             "hour2": "10:00:00 a.m.",
             "place": [
                 "Parque Las Cruces",
@@ -144,8 +144,8 @@
         {
             "name": "Recreovía",
             "details": "Sesiones de actividad física en Parques de 7:00 am a 10:00 am",
-            "date": "2021-02-12",
-            "hour1": "07:00:00 a.m.",
+            "date": "FEB 12",
+            "hour1": "Viernes 07:00 AM",
             "hour2": "10:00:00 a.m.",
             "place": [
                 "Parque Alta Blanca",
