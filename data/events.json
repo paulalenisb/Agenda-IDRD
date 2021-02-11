@@ -11,7 +11,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Deporte",
             "audience": "Todo público",
-            "locality": "Todas",
+            "locality": ["Todas"],
             "img": "https://www.idrd.gov.co/sites/default/files/eventos/escuela-bici_18.jpg"
         },
         {
@@ -25,7 +25,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Recreación",
             "audience": "Todo público",
-            "locality": "Todas",
+            "locality": ["Todas"],
             "img" : "https://recursosgratiseninternet.com/wp-content/uploads/2020/03/paseo-virtual-por-matera-italia.jpg"
         },
         {
@@ -39,7 +39,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Recreación",
             "audience": "Todo público",
-            "locality": "Todas",
+            "locality": ["Todas"],
             "img": "../img/Bogota-Caminata.png"
         },
         {
@@ -53,7 +53,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Otros eventos",
             "audience": "Todo público",
-            "locality": "Todas",
+            "locality": ["Todas"],
             "img": "../img/protocolos.png"
         },
         {
@@ -67,7 +67,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Otros eventos",
             "audience": "Todo público",
-            "locality": "Todas",
+            "locality": ["Todas"],
             "img": "../img/protocolos.png"
         },
         {
@@ -107,7 +107,7 @@
                 "Adolescencia ",
                 "Adultez"
             ],
-            "locality": "Todas",
+            "locality": ["Todas"],
             "img": "../img/Ciclovia.png"
         },
         {

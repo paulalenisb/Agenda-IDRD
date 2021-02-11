@@ -3,12 +3,26 @@ import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import { Container, Content, Button } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import swal from '@sweetalert/with-react';
 
 
 import data from '../../data/data.json'
 
 console.log(data.events);
 const dataEvents = data.events;
+
+
+const handlePressButton = () => {
+
+    swal(
+    <View style={styles.modal}>
+      <Text style={styles.title}>Te esperamos</Text>
+      </View>,
+    {
+      icon: "success",
+    }
+  )
+}
 
 
 export default function Evento(index) {
@@ -33,7 +47,7 @@ export default function Evento(index) {
           {dataEvents[idx].date}
           </Text>
          <Text  style={{ width: 100, height: 100, fontWeight: '600', fontSize: 18, marginLeft: 10 }}> {dataEvents[idx].hour1} </Text>
-          <Button rounded style={{ backgroundColor: '#59FBDA', marginLeft: 40 }} >
+          <Button rounded style={{ backgroundColor: '#59FBDA', marginLeft: 40 }} onPress={() => handlePressButton()} >
             <Text style={{ width: 100, color: '#584799', fontSize: 20, textAlign: 'center', fontWeight: '600' }}>Añadir</Text>
           </Button>
         </View>
