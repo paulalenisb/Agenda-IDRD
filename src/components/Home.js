@@ -81,11 +81,19 @@ const CardEvent = ({ navigation }) => {
         dataEvents.map((events, index) => {
           return (
             <ScrollView>
-            <Card>
+            <Card style={{flex: 1, flexDirection: 'row'}}>
             <CardItem>
+            <Left>
               <Body>
-              <Text style={{ color: '#584799', fontWeight: 600, fontSize: 15 }}>{events.name}</Text>
-                <Text  style={{ textAlign: 'justify', fontSize: 10 }}>{events.date}</Text>
+              <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Monserrate_Sanctuary.JPG/1200px-Monserrate_Sanctuary.JPG'}} style={{height: 100, width: 100, flex: 1, borderRadius:5}}/>
+              </Body>
+            </Left>
+          </CardItem>
+
+          <CardItem style={{flex: 2, flexDirection: 'column'}}>
+            <Body>
+              <Text style={{ color: '#584799', fontWeight: 600, fontSize: 20 }}>{events.name}</Text>
+                <Text  style={{ textAlign: 'justify', fontSize: 15 }}>{events.date}</Text>
                 <Button onPress={handlePressButton} title="crear recordatorio"></Button>
             </Body>
 
