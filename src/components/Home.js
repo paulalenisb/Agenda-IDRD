@@ -8,11 +8,6 @@ import data from '../../data/events.json'
 const dataEvents = data.events;
 const header = require('../../assets/Header.png');
 
-const event = {
-  name: "Recorrido bicicleta",
-  date: "2021-02-23"
-}
-
 const storeData = async (value) => {
   try {
     const jsonValue = await AsyncStorage.getItem("@storage_Key");
