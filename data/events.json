@@ -11,7 +11,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Deporte",
             "audience": "Todo público",
-            "locality": "Todas",
+            "locality": ["Todas"],
             "img": ""
         },
         {
@@ -25,7 +25,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Recreación",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": ["Todas"]
         },
         {
             "name": "Caminata Virtual",
@@ -38,7 +38,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Recreación",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": ["Todas"]
         },
         {
             "name": "Protocolos de Bioseguridad",
@@ -51,7 +51,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Otros eventos",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": ["Todas"]
         },
         {
             "name": "Protocolos de Bioseguridad",
@@ -64,7 +64,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Otros eventos",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": ["Todas"]
         },
         {
             "name": "Recreovía",
@@ -102,7 +102,7 @@
                 "Adolescencia",
                 "Adultez"
             ],
-            "locality": "Todas"
+            "locality": ["Todas"]
         },
         {
             "name": "Recreovía",
