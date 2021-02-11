@@ -1,0 +1,178 @@
+{
+    "events": [
+        {
+            "name": "Escuela de la Bicicleta",
+            "details": "Escuela de la Bicicleta en Parques",
+            "date": "2021-02-10",
+            "hour1": "05:00:00 p.m.",
+            "hour2": "06:00:00 p.m.",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Deporte",
+            "audience": "Todo público",
+            "locality": "Todas",
+            "img": "https://www.idrd.gov.co/sites/default/files/eventos/escuela-bici_18.jpg"
+        },
+        {
+            "name": "Caminata Virtual",
+            "details": "Caminata Virtual localidad de Fontibón",
+            "date": "2021-02-12",
+            "hour1": "10:00:00 a.m.",
+            "hour2": "11:00:00 a.m.",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Recreación",
+            "audience": "Todo público",
+            "locality": "Todas",
+            "img" : "https://recursosgratiseninternet.com/wp-content/uploads/2020/03/paseo-virtual-por-matera-italia.jpg"
+        },
+        {
+            "name": "Caminata Virtual",
+            "details": "Caminata Virtual: Principales festividades en Bogotá",
+            "date": "2021-02-14",
+            "hour1": "10:00:00 a.m.",
+            "hour2": "11:00:00 a.m.",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Recreación",
+            "audience": "Todo público",
+            "locality": "Todas",
+            "img": "../img/Bogota-Caminata.png"
+        },
+        {
+            "name": "Protocolos de Bioseguridad",
+            "details": "Inducción sobre los elementos de protección personal y los Protocolos de Bioseguridad",
+            "date": "2021-02-09",
+            "hour1": "07:00:00 a.m.",
+            "hour2": "08:30:00 a.m.",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Otros eventos",
+            "audience": "Todo público",
+            "locality": "Todas",
+            "img": "../img/protocolos.png"
+        },
+        {
+            "name": "Protocolos de Bioseguridad",
+            "details": "Inducción sobre los elementos de protección personal y los Protocolos de Bioseguridad",
+            "date": "2021-02-10",
+            "hour1": "09:00:00 a.m.",
+            "hour2": "10:00:00 a.m.",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Otros eventos",
+            "audience": "Todo público",
+            "locality": "Todas",
+            "img": "../img/protocolos.png"
+        },
+        {
+            "name": "Recreovía",
+            "details": "Sesiones de actividad física en los parques de 8:00 a.m. a 1:00 p.m.",
+            "date": "2021-02-14",
+            "hour1": "08:00:00 a.m.",
+            "hour2": "01:00:00 p.m.",
+            "place": [
+                "Parque Metropolitano El Tunal",
+                "Parque Zonal Fontanar del Rio"
+            ],
+            "access": "Gratis",
+            "link": "www.idrd.gov.co",
+            "category": "Actividad física",
+            "audience":  [
+                "Adolescencia",
+                "Adultez"
+            ],
+            "locality": [
+                "Tunjuelito",
+                "Suba"
+            ],
+            "img": "../img/Actividad-Fisica.png"
+        },
+        {
+            "name": "Ciclovía",
+            "details": "Ciclovía Dominical (Sujeto a cambios por orden distrital)",
+            "date": "2021-02-14",
+            "hour1": "07:00:00 a.m.",
+            "hour2": "02:00:00 p.m.",
+            "place": "Corredores de Bogotá",
+            "access": "Gratis",
+            "link": "www.idrd.gov.co",
+            "category": "Deporte",
+            "audience":  [
+                "Adolescencia ",
+                "Adultez"
+            ],
+            "locality": "Todas",
+            "img": "../img/Ciclovia.png"
+        },
+        {
+            "name": "Recreovía",
+            "details": "Sesiones de actividad física en Parques de 7:00 am a 10:00 am",
+            "date": "2021-02-09",
+            "hour1": "07:00:00 a.m.",
+            "hour2": "10:00:00 a.m.",
+            "place": [
+                "Parque Las Cruces",
+                "La Victoria",
+                "Parque Serena",
+                "Parque Eduardo Santos",
+                "Parque Molinos II",
+                "sector Parque Candelaria la nueva"
+            ],
+            "access": "Gratis",
+            "link": "www.idrd.gov.co",
+            "category": "Actividad física",
+            "audience":  [
+                "Adolescencia ",
+                "Adultez"
+            ],
+            "locality": [
+                "Santa Fe",
+                "San Cristóbal",
+                "Engativá",
+                "Mártires",
+                "Rafael Uribe Uribe",
+                "Ciudad Bolívar"
+            ],
+            "img": "../img/Ejercicio.png"
+        },
+        {
+            "name": "Recreovía",
+            "details": "Sesiones de actividad física en Parques de 7:00 am a 10:00 am",
+            "date": "2021-02-12",
+            "hour1": "07:00:00 a.m.",
+            "hour2": "10:00:00 a.m.",
+            "place": [
+                "Parque Alta Blanca",
+                "La Andrea",
+                "Parque Naranjos",
+                "Parque Timiza",
+                "Parque San Andrés",
+                "Parque La Gaitana",
+                "Polideportivo El Jazmín"
+            ],
+            "access": "Gratis",
+            "link": "www.idrd.gov.co",
+            "category": "Actividad física",
+            "audience":  [
+                "Adolescencia ",
+                "Adultez"
+            ],
+            "locality": [
+                "Usaquén",
+                "Usme",
+                "Bosa",
+                "Kennedy",
+                "Engativá",
+                "Suba",
+                "Puente Aranda"
+            ],
+            "img": "../img/Ejercicio2.png"
+        }
+    ]
+}
