@@ -12,7 +12,7 @@
             "category": "Deporte",
             "audience": "Todo público",
             "locality": "Todas",
-            "img": ""
+            "img": "../img/Escuela-recreacio.png"
         },
         {
             "name": "Caminata Virtual",
@@ -25,7 +25,8 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Recreación",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": "Todas",
+            "img": "../img/Fontibon.png"
         },
         {
             "name": "Caminata Virtual",
@@ -38,7 +39,8 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Recreación",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": "Todas",
+            "img": "../img/Bogota-Caminata.png"
         },
         {
             "name": "Protocolos de Bioseguridad",
@@ -51,7 +53,8 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Otros eventos",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": "Todas",
+            "img": "../img/protocolos.png"
         },
         {
             "name": "Protocolos de Bioseguridad",
@@ -64,7 +67,8 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Otros eventos",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": "Todas",
+            "img": "../img/protocolos.png"
         },
         {
             "name": "Recreovía",
@@ -86,7 +90,8 @@
             "locality": [
                 "Tunjuelito",
                 "Suba"
-            ]
+            ],
+            "img": "../img/Actividad-Fisica.png"
         },
         {
             "name": "Ciclovía",
@@ -102,7 +107,8 @@
                 "Adolescencia",
                 "Adultez"
             ],
-            "locality": "Todas"
+            "locality": "Todas",
+            "img": "../img/Ciclovia.png"
         },
         {
             "name": "Recreovía",
@@ -132,7 +138,8 @@
                 "Mártires",
                 "Rafael Uribe Uribe",
                 "Ciudad Bolívar"
-            ]
+            ],
+            "img": "../img/Ejercicio.png"
         },
         {
             "name": "Recreovía",
@@ -164,7 +171,8 @@
                 "Engativá",
                 "Suba",
                 "Puente Aranda"
-            ]
+            ],
+            "img": "../img/Ejercicio2.png"
         }
     ]
 }

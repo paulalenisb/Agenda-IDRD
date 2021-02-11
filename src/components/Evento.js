@@ -16,11 +16,15 @@ export default function Evento() {
           }}
         />
         <View style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 300, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={styles.textImage}>Título</Text>
+          <Text style={styles.textImage}>Caminata</Text>
         </View>
 
         <View style={{ flexDirection: 'row', marginTop: -100, marginLeft: 50 }}>
-          <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 20,  textAlign: 'center', fontWeight: 600 }} >FEB 10</Text>
+          {/* <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 20,  textAlign: 'center', fontWeight: 600 }} >FEB 10</Text> */}
+          <View style={{backgroundColor: '#59FBDA', flex: 1,aspectRatio: 1, width:70, borderRadius: 10  }}>
+                          <Text style={{ color:'#584799', fontWeight: 'bold', fontSize: 20, textAlign: 'center', marginTop: 5 }} >FEB</Text>
+                          <Text style={{ color:'#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center', marginBottom: 5 }}>10</Text>
+                          </View>
           <Text style={{ width: 100, height: 50 }}> Míercoles 19:30 </Text>
           <Button rounded style={{ backgroundColor: '#59FBDA'}} >
             <Text style={{ width: 100,  color: '#584799', fontSize: 20 , textAlign: 'center', fontWeight: 600}}>Añadir</Text>
