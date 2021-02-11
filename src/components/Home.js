@@ -102,7 +102,7 @@ const CardEvent = ({ objNavigate }) => {
                 <CardItem style={{ flex: 2, flexDirection: 'column' }}>
                   <Body>
                     <Text style={{ color: '#584799', fontWeight: 600, fontSize: 20 }}>{events.name}</Text>
-                    <Text style={{ textAlign: 'justify', fontSize: 15 }}>{events.date}</Text>
+                    <Text style={{ textAlign: 'justify', fontSize: 15 }}>{events.details}</Text>
                     {/* <Button onPress={handlePressButton} title="crear recordatorio"></Button> */}
                   </Body>
 

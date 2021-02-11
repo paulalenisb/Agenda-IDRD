@@ -51,7 +51,6 @@ export default function Evento(index) {
         <Content style={{ marginLeft: 30, marginTop: -20, width: 300 }}>
           <Text style={{ fontWeight: 600, fontSize: 20 }}>
             Descripción
-            <AntDesign name="staro" size={20} color="black" style={{ marginLeft: 10 }} />
           </Text>
           <Text>
             {dataEvents[idx].details}
@@ -98,7 +97,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 600,
     marginLeft: -100,
-    marginTop: 100,
+    marginTop: 150,
   },
   boton: {
     backgroundColor: "rgba(89, 251, 218, 1)",
