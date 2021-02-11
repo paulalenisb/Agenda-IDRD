@@ -54,7 +54,7 @@ const handlePressButton = () => {
     <View style={styles.modal}>
       <Text style={styles.title}>Te esperamos</Text>
       <Text style={styles.container}>{event.name}</Text>
-      <Text style={styles.schedule}>{event.date}</Text>
+      <Text style={styles.spot}>{event.date}</Text>
     </View>,
     {
       icon: "success",
