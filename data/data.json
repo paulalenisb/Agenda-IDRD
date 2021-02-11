@@ -26,7 +26,7 @@
             "category": "Recreación",
             "audience": "Todo público",
             "locality": "Todas",
-            "img" : "https://recursosgratiseninternet.com/wp-content/uploads/2020/03/paseo-virtual-por-matera-italia.jpg"
+            "img": "https://recursosgratiseninternet.com/wp-content/uploads/2020/03/paseo-virtual-por-matera-italia.jpg"
         },
         {
             "name": "Caminata Virtual",
@@ -39,7 +39,8 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Recreación",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": "Todas",
+            "img": "../img/Bogota-Caminata.png"
         },
         {
             "name": "Protocolos de Bioseguridad",
@@ -52,7 +53,8 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Otros eventos",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": "Todas",
+            "img": "../img/protocolos.png"
         },
         {
             "name": "Protocolos de Bioseguridad",
@@ -65,7 +67,8 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Otros eventos",
             "audience": "Todo público",
-            "locality": "Todas"
+            "locality": "Todas",
+            "img": "../img/protocolos.png"
         },
         {
             "name": "Recreovía",
@@ -87,7 +90,8 @@
             "locality": [
                 "Tunjuelito",
                 "Suba"
-            ]
+            ],
+            "img": "../img/Actividad-Fisica.png"
         },
         {
             "name": "Ciclovía",
@@ -100,10 +104,11 @@
             "link": "www.idrd.gov.co",
             "category": "Deporte",
             "audience":  [
-                "Adolescencia ",
+                "Adolescencia",
                 "Adultez"
             ],
-            "locality": "Todas"
+            "locality": "Todas",
+            "img": "../img/Ciclovia.png"
         },
         {
             "name": "Recreovía",
@@ -123,7 +128,7 @@
             "link": "www.idrd.gov.co",
             "category": "Actividad física",
             "audience":  [
-                "Adolescencia ",
+                "Adolescencia",
                 "Adultez"
             ],
             "locality": [
@@ -133,7 +138,8 @@
                 "Mártires",
                 "Rafael Uribe Uribe",
                 "Ciudad Bolívar"
-            ]
+            ],
+            "img": "../img/Ejercicio.png"
         },
         {
             "name": "Recreovía",
@@ -154,7 +160,7 @@
             "link": "www.idrd.gov.co",
             "category": "Actividad física",
             "audience":  [
-                "Adolescencia ",
+                "Adolescencia",
                 "Adultez"
             ],
             "locality": [
@@ -165,7 +171,8 @@
                 "Engativá",
                 "Suba",
                 "Puente Aranda"
-            ]
+            ],
+            "img": "../img/Ejercicio2.png"
         }
     ]
 }
