@@ -68,16 +68,11 @@ export default function Home({ navigation }) {
   )
 }
 
-const CardEvent = ({ navigation }) => {
+const CardEvent = ({ objNavigate }) => {
 
   return (
     <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        title="Ver más"
-        onPress={() => navigation.navigate('Evento')}
-      />
-
-      <Content padder>{
+        <Content padder>{
         dataEvents.map((events, index) => {
           return (
             <ScrollView>
@@ -98,9 +93,9 @@ const CardEvent = ({ navigation }) => {
             </Body>
 
             <Body style={{ flex: 2, flexDirection: 'row' }}>
-              <TouchableOpacity style={stylesHome.boton} onPress={() => navigation.navigate('Evento')}>
+              <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento')}>
                 <Text style={{ textAlign: 'center' }} >Ver más</Text></TouchableOpacity>
-              <TouchableOpacity style={stylesHome.boton} onPress={() => navigation.navigate('Mi agenda')}>
+          <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Mi agenda')}>
                 <Text style={{ textAlign: 'center' }}>Reservar</Text>
               </TouchableOpacity>
             </Body>
@@ -126,6 +121,47 @@ const CardEvent = ({ navigation }) => {
   )
 }
 
+
+
+export function NavegationHome({navigation}) {
+  const [selectedValue, setSelectedValue] = useState("kennedy");
+    return (
+        <ScrollView>
+        <Image  source={header} style={stylesHome.imagen} />
+      <View style={stylesHome.containerSelect} >
+      <Picker
+        selectedValue={selectedValue}
+        style={stylesHome.select} 
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
+        <Picker.Item label="Ubicación" value="java" />
+        <Picker.Item label="Kennedy" value="js" />
+      </Picker>
+      <Picker
+        selectedValue={selectedValue}
+        style= {stylesHome.select} 
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)} >
+        <Picker.Item label="Categorias" value="java" />
+        <Picker.Item label="Caminatas" value="js" />
+      </Picker>
+      </View>
+      <View>
+          <Content padder>{
+        dataEvents.map((events, index) => {
+            <CardEvent objNavigate={navigation}
+            events={events}/>
+            
+        }
+
+        )
+      }
+
+      </Content>
+
+      
+      </View>
+    </ScrollView>
+    )
+    }
 
 const stylesHome = StyleSheet.create({
   select: {
