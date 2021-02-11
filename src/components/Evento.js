@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import { Container, Content, Button } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function Evento() {
   return (
-    <View>
+    <ScrollView>
       <Container>
         <Image
           style={styles.eventImage}
@@ -48,7 +48,7 @@ export default function Evento() {
         </Content>
 
       </Container>
-    </View>
+    </ScrollView>
   )
 }
 
