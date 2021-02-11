@@ -36,7 +36,8 @@ const CardEvent = ({ objNavigate }) => {
   
   return (
     <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Content padder>{
+      <Content padder>
+        {
         dataEvents.map((events, index) => {
           return (
             <ScrollView>
@@ -110,19 +111,11 @@ export default function Home({navigation}) {
       </Picker>
       </View>
       <View>
-          <Content padder>{
-        dataEvents.map((events, index) => {
-            <CardEvent objNavigate={navigation}
-            events={events}/>            
-        }
-
-        )
-      }
-      </Content>
       <Calendar>        
       </Calendar>
-      <CardEvent />
-      <CardEvent />      
+          <Content>         
+            <CardEvent objNavigate={navigation}/>
+      </Content>
       </View>
     </ScrollView>
     ) }
