@@ -8,8 +8,32 @@ import Calendar from '../components/calendarHome'
 
 
 
+import data from '../../data/events.json'
 
-export default function Home() {
+console.log(data.events);
+const dataEvents = data.events;
+
+const event = {
+  name: "Recorrido bicicleta",
+  date: "2021-02-23"
+}
+
+const storeData = async (value) => {
+  try {
+    const jsonValue = JSON.stringify(value)
+    await AsyncStorage.setItem('@storage_Key', jsonValue)
+  } catch (e) {
+    // saving error
+  }
+}
+
+const handlePressButton = () => {
+  alert("crear recordatorio")
+  storeData(event)
+}
+
+
+export default function Home({ navigation }) {
   const [selectedValue, setSelectedValue] = useState("kennedy");
   return (
     <ScrollView>
@@ -31,6 +55,7 @@ export default function Home() {
           <Picker.Item label="Caminatas" value="js" />
         </Picker>
       </View>
+     
       <Calendar>
         
     
@@ -38,6 +63,7 @@ export default function Home() {
 
       <CardEvent />
       <CardEvent />
+      
     </ScrollView>
   )
 }
@@ -45,34 +71,53 @@ export default function Home() {
 const CardEvent = ({ navigation }) => {
 
   return (
-    <Container>
-       <Content>
-        <Card style={{ flex: 1, flexDirection: 'row' }}>
-          <CardItem>
-            <Left>
+    <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button
+        title="Ver más"
+        onPress={() => navigation.navigate('Evento')}
+      />
+
+      <Content padder>{
+        dataEvents.map((events, index) => {
+          return (
+            <ScrollView>
+            <Card>
+            <CardItem>
               <Body>
-                <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Monserrate_Sanctuary.JPG/1200px-Monserrate_Sanctuary.JPG' }} style={{ height: 50, width: 50, flex: 1, borderRadius: 5 }} />
-              </Body>
-            </Left>
-          </CardItem>
-          <CardItem style={{ flex: 2, flexDirection: 'column' }}>
-            <Body>
-              <Title style={{ color: 'black', fontSize: 15 }}>Recorrido virtual Monserrate</Title>
-              <Text style={{ textAlign: 'justify', fontSize: 10 }}>El cerro de Monserrate en Bogotá</Text>
+              <Text style={{ color: '#584799', fontWeight: 600, fontSize: 15 }}>{events.name}</Text>
+                <Text  style={{ textAlign: 'justify', fontSize: 10 }}>{events.date}</Text>
+                <Button onPress={handlePressButton} title="crear recordatorio"></Button>
             </Body>
-            <Body style={{ flex: 1, flexDirection: 'row' }}>
+
+            <Body style={{ flex: 2, flexDirection: 'row' }}>
               <TouchableOpacity style={stylesHome.boton} onPress={() => navigation.navigate('Evento')}>
                 <Text style={{ textAlign: 'center' }} >Ver más</Text></TouchableOpacity>
               <TouchableOpacity style={stylesHome.boton} onPress={() => navigation.navigate('Mi agenda')}>
                 <Text style={{ textAlign: 'center' }}>Reservar</Text>
               </TouchableOpacity>
             </Body>
-          </CardItem>
-        </Card>
+              
+            </CardItem>
+            </Card>
+            </ScrollView>
+          )
+        }
+
+        // <Text>{events.name}</Text>
+          // <EventHome
+          //   key={'e' + index}
+          //   events={events}/>
+          // console.log('hola');
+
+        )
+      }
+
       </Content>
-    </Container>
-  );
+
+    </ScrollView>
+  )
 }
+
 
 const stylesHome = StyleSheet.create({
   select: {
