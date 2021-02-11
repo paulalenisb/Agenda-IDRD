@@ -139,62 +139,84 @@ const CardEvent = ({ objNavigate }) => {
 export default function Home({navigation}) {
 
   const [selectedValue, setSelectedValue] = useState("kennedy");
-  let mapCategory = dataEvents.map((element) => element.category);
-  let unicoCategory = [...new Set(mapCategory)];
-  console.log(unicoCategory);
-  let mapUbicacion = dataEvents.map((element, index)=> element.locality);
-  let unicaUbicacion = [...new Set(mapUbicacion)];
+  // const [modalVisible, setModalVisible] = useState(false)
 
+    return (
+        <ScrollView style={{ backgroundColor: 'white' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', headerTitleAlign: "center",}}>
+            <Image  source={header} style={stylesHome.imagen} />
+          </View>
+       
+      <View style={stylesHome.containerSelect} >
+      <Picker
+        selectedValue={selectedValue}
+        style={stylesHome.select} 
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
+        <Picker.Item label="Ubicación" value="java" />
+        <Picker.Item label="Kennedy" value="js" />
+      </Picker>
+      <Picker
+        selectedValue={selectedValue}
+        style= {stylesHome.select} 
+        onValueChange={() => setSelectedValue(e.target.value)} >
+        <Picker.Item label='Ubicación' value="java" />
+        <Picker.Item label="Caminatas" value="js" />
+      </Picker>
+      </View>
+      <View>
+      <Calendar>        
+      </Calendar>
 
-  const localidades = ()=>{
-    let arrayLocality = [];
-    console.log(arrayLocality); 
-    for ( let i= 0; i < dataEvents.length; i++) {
-    let localidad = dataEvents[i].locality;
-    for (let j= 0; j < localidad.length; j++){
-      let allLocality = localidad[j];
-      arrayLocality.push(allLocality);
-    }
-    }
-  }
-  localidades();
-  
-  return (
-    <Container style={{ flex: 1 , justifyContent:'center', alignItems: 'center' }} >
-<Content>
+      {/* <Button
+        onPress={() => setModalVisible(true)}>
+        <Text >Show Modal</Text>
+      </Button>  */}
 
-      <Image  source={header} style={stylesHome.imagen} />
-    <View style={stylesHome.containerSelect} >
-    <Picker
-      selectedValue={selectedValue}
-      style={stylesHome.select} 
-      onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-      <Picker.Item label="Ubicación" value="java" padder/>{
-        unicaUbicacion.map((element)=>
-        <Picker.Item label={element} value="js" /> 
-        ) 
-      } 
-    </Picker>
-    <Picker
-      selectedValue={selectedValue}
-      style= {stylesHome.select} 
-      onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)} >
-      <Picker.Item label="Categorias" value="java" padder/>{
-        unicoCategory.map((event) => 
-        <Picker.Item label={event} value="js"/>
-          )}
-    </Picker>
+         {/* <Modal
+        transparent={true}
+          animationType="slide"
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+            }}
+          ><View  style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 22,
+            backgroundColor: 'rgba(0, 0, 0, 0.50)'
+          }}>
+          <View style={{
+          margin: 20,
+          backgroundColor: "white",
+          borderRadius: 20,
+          padding: 35,
+          alignItems: "center",
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 2
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 4,
+          elevation: 5}} >
+        <Text >Hello World!</Text>
+        <Button
+          onPress={() => setModalVisible(false)}>
+          <Text>Hide Modal</Text>
+        </Button>
+      </View>
     </View>
-    <View>
-    <Calendar>        
-    </Calendar>
-    </View>
-    <CardEvent objNavigate={navigation}/>            
-    </Content>
-    </Container>
+  </Modal> */}
 
-      
-  ) }
+
+          <Content>         
+            <CardEvent objNavigate={navigation}/>
+      </Content>
+      </View>
+    </ScrollView>
+    ) }
 
 const stylesHome = StyleSheet.create({
   select: {
@@ -224,4 +246,3 @@ const stylesHome = StyleSheet.create({
     marginRight: 20
   }
 });
-
