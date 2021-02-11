@@ -63,11 +63,10 @@ const CardEvent = ({ objNavigate }) => {
                   </Body>
 
                   <Body style={{ flex: 2, flexDirection: 'row' }}>
-                    <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento')}>
+                    <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', {index})}>
                       <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} >Ver más</Text></TouchableOpacity>
                     <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Mi agenda')}>
                       {/* {
-
                       handlePressButton.map((arrEvents) => {
                         return(
                           <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} onPress={{arrEvents.date}}>Reservar</Text>
