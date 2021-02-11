@@ -49,16 +49,15 @@ const storeData = async (value) => {
 }
 
 const handlePressButton = () => {
-  //callback => console.log('callback'));
-  //storeData(event);
+  storeData(event);
   swal(
-    (<View style={styles.modal}>
+    <View style={styles.modal}>
       <Text style={styles.title}>Te esperamos</Text>
       <Text style={styles.container}>{event.name}</Text>
       <Text style={styles.schedule}>{event.date}</Text>
-    </View>),
+    </View>,
     {
-      width: 5,
+      icon: "success",
     }
   )
 
