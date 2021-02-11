@@ -1,12 +1,46 @@
+
 import React, { useState } from 'react';
+import * as Font from 'expo-font';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Modal, Alert } from 'react-native';
 import { Picker, Container, Content, CardItem, Left, Body, Button, Card, Title } from "native-base";
 import Calendar from '../components/calendarHome';
+import swal from '@sweetalert/with-react';
 import data from '../../data/events.json'
 
 const dataEvents = data.events;
 const header = require('../../assets/Header.png');
+
+const styles = StyleSheet.create({
+  modal: {
+    flex: 1,
+    padding: 6,
+    fontFamily: "Arial",
+    textAlign: "center",
+    fontSize: 30,
+  },
+  title: {
+    margin: 4,
+    padding: 4,
+    color: "#584799",
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  content: {
+    margin: 2,
+    padding: 4,
+    color: "000000",
+    fontSize: 20,
+    fontWeight: "regular",
+  },
+  spot: {
+    margin: 2,
+    padding: 4,
+    color: "000000",
+    fontSize: 18,
+    fontWeight: "regular",
+  }
+});
 
 const storeData = async (value) => {
   try {
@@ -34,6 +68,16 @@ const handlePressButton = async (newEvent) => {
 
   alert("crear recordatorio")
   storeData(newEvent)
+    swal(
+    <View style={styles.modal}>
+      <Text style={styles.title}>Te esperamos</Text>
+      <Text style={styles.container}>{event.name}</Text>
+      <Text style={styles.spot}>{event.date}</Text>
+    </View>,
+    {
+      icon: "success",
+    }
+  )
 }
 
 const CardEvent = ({ objNavigate }) => {
@@ -202,3 +246,4 @@ const stylesHome = StyleSheet.create({
     marginRight: 20
   }
 });
+
