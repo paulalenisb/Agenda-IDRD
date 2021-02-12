@@ -71,7 +71,7 @@ export default function Evento(index) {
               {dataEvents[idx].audience}
             </Text>
           </View>
-          <Image source='../../assets/logo-idrd.png' style={{ width: 50, height:50 }}></Image>
+          <Image source='https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/developIDRD/assets/logo-idrd.png?raw=true' style={{ width: 200, height:50, marginLeft: 50, marginTop: 30 }}></Image>
         </Content>
       </Container>
     </ScrollView>
