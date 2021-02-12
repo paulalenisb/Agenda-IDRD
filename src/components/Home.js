@@ -32,11 +32,29 @@ const handlePressButton = () => {
   storeData(event)
 }
 
-const CardEvent = ({ objNavigate }) => {
+const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion}) => {
+  console.log(selectCategoria, selectUbicacion)
+
+  const filterUbicacion = dataEvents.filter((option)=> option.locality.includes(selectUbicacion))
+    console.log(filterUbicacion) 
+  
+  const filterCategoria = dataEvents.filter((option) => option.category === selectCategoria)
+  console.log(filterCategoria);
+  
+  let condicionFilter 
+    if (filterUbicacion !== null ) {
+      condicionFilter = filterUbicacion
+    }  else if(filterCategoria !== null) { condicionFilter= filterCategoria}  
+    else{
+      condicionFilter= dataEvents
+    } 
+  
+  
   
   return (
       <Content style={{ flex: 1 , flexDirection: 'row' }} padder>{
-        dataEvents.map((events, index) => {
+        condicionFilter.length > 0 ? (
+        condicionFilter.map((events, index) => {
           return (
               <Card style={{ flex: 2, flexDirection: 'row', }} >
                 <CardItem>
@@ -62,36 +80,39 @@ const CardEvent = ({ objNavigate }) => {
                   </Body>
                 </CardItem>
               </Card>
-          )
+          ) 
         }
         )
+        ) : null
       }
+    
+        
       </Content>
   )
 }
 
 
 export default function Home({navigation}) {
-  const [selectedValue, setSelectedValue] = useState("kennedy");
+  const [selectedValue, setSelectedValue] = useState(null);
+  const [selectedValues, setSelectedValues] = useState(null);
   let mapCategory = dataEvents.map((element) => element.category);
   let unicoCategory = [...new Set(mapCategory)];
-  console.log(unicoCategory);
-  let mapUbicacion = dataEvents.map((element, index)=> element.locality);
-  let unicaUbicacion = [...new Set(mapUbicacion)];
 
-
-  const localidades = ()=>{
+ const localidades = ()=>{
     let arrayLocality = [];
-    console.log(arrayLocality); 
+    console.log(arrayLocality);
     for ( let i= 0; i < dataEvents.length; i++) {
     let localidad = dataEvents[i].locality;
     for (let j= 0; j < localidad.length; j++){
       let allLocality = localidad[j];
+      console.log(allLocality);
       arrayLocality.push(allLocality);
     }
     }
+    return arrayLocality
   }
-  localidades();
+  let unicaUbicacion = [...new Set(localidades())]; 
+
 
     return (
       <Container style={{ flex: 1 , justifyContent:'center', alignItems: 'center' }} >
@@ -100,12 +121,13 @@ export default function Home({navigation}) {
         <Image  source={header} style={stylesHome.imagen} />
       <View style={stylesHome.containerSelect} >
       <Picker
-        selectedValue={selectedValue}
+        selectedValue={selectedValues}
         style={stylesHome.select} 
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-        <Picker.Item label="Ubicación" value="java" padder/>{
+        onValueChange={(itemValue, itemIndex) => setSelectedValues(itemValue)}>
+          
+        <Picker.Item label="Ubicación" value="localidad" padder/>{
           unicaUbicacion.map((element)=>
-          <Picker.Item label={element} value="js" /> 
+          <Picker.Item label={element} value={element} /> 
           ) 
         } 
       </Picker>
@@ -115,7 +137,7 @@ export default function Home({navigation}) {
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)} >
         <Picker.Item label="Categorias" value="java" padder/>{
           unicoCategory.map((event) => 
-          <Picker.Item label={event} value="js"/>
+          <Picker.Item label={event} value={event}/>
             )}
       </Picker>
       </View>
@@ -123,7 +145,7 @@ export default function Home({navigation}) {
       <Calendar>        
       </Calendar>
       </View>
-      <CardEvent objNavigate={navigation}/>            
+      <CardEvent objNavigate={navigation} selectUbicacion={selectedValues} selectCategoria={selectedValue}  />            
       </Content>
       </Container>
   
@@ -135,7 +157,10 @@ const stylesHome = StyleSheet.create({
     borderRadius: 10,
     width: 120,
     height: 30,
-    margin: 10
+    margin: 10,
+    cursor: 'pointer',
+    borderRadius: 30,
+
   },
   boton: {
     backgroundColor: "rgba(89, 251, 218, 1)",
@@ -159,11 +184,11 @@ const stylesHome = StyleSheet.create({
   textBoton: {
     color: '#584799',
     fontSize: 17,
-    fontWeight: 600
+    fontWeight:'600'
   },
   textName:{
     color: '#584799', 
-    fontWeight: 600, 
+    fontWeight: '600', 
     fontSize: 20
   },
   textDate :{ 
