@@ -23,6 +23,8 @@ export default function MiAgenda() {
         const eventsValues = JSON.parse(jsonValue);
         setState(eventsValues.map((dateEvent) => dateEvent.date));
         setEvent(eventsValues)
+        //  console.log(event);
+
       }
       // console.log(eventsValue);
     } catch (e) {
@@ -30,7 +32,7 @@ export default function MiAgenda() {
     }
   };
 
-  console.log(event);
+ 
 
   useEffect(() => {getData()}, []);
 
@@ -112,8 +114,8 @@ export default function MiAgenda() {
           {event &&
           event.map((item, index) => {
             // const idx = index.route.params.index;
-            console.log(item.name);
-            console.log(item.dateName);
+            // console.log(item.name);
+            // console.log(item.dateName);
             return(
             
            
