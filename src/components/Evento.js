@@ -36,7 +36,6 @@ export default function Evento(index) {
           source={{ uri: dataEvents[idx].img }}
         />
         <View style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 300, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={styles.textImage}>{dataEvents[idx].name}</Text>
         </View>
 
         <View style={{ flexDirection: 'row', marginTop: -100, marginLeft: 30 }}>
@@ -49,9 +48,8 @@ export default function Evento(index) {
           </Button>
         </View>
         <Content style={{ marginLeft: 30, marginTop: -20, width: 300 }}>
-          <Text style={{ fontWeight: 600, fontSize: 20 }}>
-            Descripción
-            <AntDesign name="staro" size={20} color="black" style={{ marginLeft: 10 }} />
+          <Text style={{ fontWeight: 600, fontSize: 20, color: '#584799' }}>
+          {dataEvents[idx].name}
           </Text>
           <Text>
             {dataEvents[idx].details}
@@ -98,7 +96,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 600,
     marginLeft: -100,
-    marginTop: 100,
+    marginTop: 150,
   },
   boton: {
     backgroundColor: "rgba(89, 251, 218, 1)",

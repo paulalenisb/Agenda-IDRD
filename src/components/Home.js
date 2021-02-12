@@ -1,248 +1,202 @@
 
 import React, { useState } from 'react';
-import * as Font from 'expo-font';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Modal, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Modal } from 'react-native';
 import { Picker, Container, Content, CardItem, Left, Body, Button, Card, Title } from "native-base";
-import Calendar from '../components/calendarHome';
-import swal from '@sweetalert/with-react';
-import data from '../../data/events.json'
-
-const dataEvents = data.events;
 const header = require('../../assets/Header.png');
 
-const styles = StyleSheet.create({
-  modal: {
-    flex: 1,
-    padding: 6,
-    fontFamily: "Arial",
-    textAlign: "center",
-    fontSize: 30,
-  },
-  title: {
-    margin: 4,
-    padding: 4,
-    color: "#584799",
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-  content: {
-    margin: 2,
-    padding: 4,
-    color: "000000",
-    fontSize: 20,
-    fontWeight: "regular",
-  },
-  spot: {
-    margin: 2,
-    padding: 4,
-    color: "000000",
-    fontSize: 18,
-    fontWeight: "regular",
-  }
-});
+
+import Calendar from '../components/calendarHome'
+
+
+
+import data from '../../data/events.json'
+
+let dataEvents = data.events;
+
+const event = {
+  name: "Recorrido bicicleta",
+  date: "2021-02-23"
+}
 
 const storeData = async (value) => {
   try {
-    const jsonValue = await AsyncStorage.getItem("@storage_Key");
-    const eventsValues = JSON.parse(jsonValue);
-
-    let eventsList = []
-    if (eventsValues == null) {
-      eventsList = [value]
-    } else {
-      eventsList = [...eventsValues, value]
-    }
-    console.log(eventsValues);
-   
-    const newJsonValue = JSON.stringify(eventsList)
-    console.log(newJsonValue);
-    await AsyncStorage.setItem('@storage_Key', newJsonValue)
-
+    const jsonValue = JSON.stringify(value)
+    await AsyncStorage.setItem('@storage_Key', jsonValue)
   } catch (e) {
     // saving error
   }
 }
 
-const handlePressButton = async (newEvent) => {
-
+const handlePressButton = () => {
   alert("crear recordatorio")
-  storeData(newEvent)
-    swal(
-    <View style={styles.modal}>
-      <Text style={styles.title}>Te esperamos</Text>
-      <Text style={styles.container}>{event.name}</Text>
-      <Text style={styles.spot}>{event.date}</Text>
-    </View>,
-    {
-      icon: "success",
-    }
-  )
+  storeData(event)
 }
 
-const CardEvent = ({ objNavigate }) => {
+const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion}) => {
+  console.log(selectCategoria, selectUbicacion)
+
+  const filterUbicacion = dataEvents.filter((option)=> option.locality.includes(selectUbicacion))
+    console.log(filterUbicacion) 
   
+  const filterCategoria = dataEvents.filter((option) => option.category === selectCategoria)
+  console.log(filterCategoria);
+  
+  const filter = () => {
+    if (filterUbicacion !== null ) {
+      return filterUbicacion
+    }  else if(filterCategoria !== null) { return  filterCategoria}  
+    else{    
+        return dataEvents   
+  }
+}
+const dataEventsFilter =(filter().length > 0 )? filter() :dataEvents
   
   return (
-    <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Content padder>
-        {dataEvents.map((events, index) => {
-
+      <Content style={{ flex: 1 , flexDirection: 'row' }} padder>{
+       dataEvents.length > 0 ? (
+        dataEventsFilter.map((events, index) => {
           return (
-            <ScrollView>
-              <Card style={{ flex: 1, flexDirection: 'row', borderRadius: 20, border: 0 }}>
+              <Card style={{ flex: 2, flexDirection: 'row', }} >
                 <CardItem>
                   <Left>
                     <Body>
-                      <Image source={{uri: events.img}} style={{ height: 100, width: 100, flex: 1, borderRadius: 5 }} />
+                      <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Monserrate_Sanctuary.JPG/1200px-Monserrate_Sanctuary.JPG' }} style={{ height: 80, width: 80, borderRadius: 5, margin: 0 }} />
                     </Body>
                   </Left>
                 </CardItem>
-
                 <CardItem style={{ flex: 2, flexDirection: 'column' }}>
-                  <Body>
-                    <Text style={{ color: '#584799', fontWeight: 600, fontSize: 20 }}>{events.name}</Text>
-                    <Text style={{ textAlign: 'justify', fontSize: 15 }}>{events.date}</Text>
-                    {/* <Button onPress={handlePressButton} title="crear recordatorio"></Button> */}
+                  <Body style={{width:170, height:30}}>
+                    <Text style={ stylesHome.textName}>{events.name}</Text>
+                    <Text style={stylesHome.textDetails}>{events.details}</Text>
+                    <Text style={stylesHome.textDate}>{events.date}</Text>
+                    <Button onPress={handlePressButton} title="crear recordatorio"></Button>
                   </Body>
-
                   <Body style={{ flex: 2, flexDirection: 'row' }}>
                     <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', {index})}>
-                      <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} >Ver más</Text></TouchableOpacity>
+                      <Text style={stylesHome.textBoton} >Ver más</Text></TouchableOpacity>
                     <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Mi agenda')}>
-                      {/* {
-                      handlePressButton.map((arrEvents) => {
-                        return(
-                          <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} onPress={{arrEvents.date}}>Reservar</Text>
-                        )
- 
-                        
-                      })
-                    } */}
-                    <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} onPress={() => handlePressButton({date: events.date,
-                    name: events.name})}>Reservar</Text>
+                <Text style={stylesHome.textBoton}>Reservar</Text>
               </TouchableOpacity>
                   </Body>
-
                 </CardItem>
-              </Card>      
-            </ScrollView>
-          )}
-        )}
-
+              </Card>
+          ) 
+        }
+        )
+        ) : null
+      }
+    
+        
       </Content>
-    </ScrollView>
   )
 }
 
 
 export default function Home({navigation}) {
+  const [selectedValue, setSelectedValue] = useState(null);
+  const [selectedValues, setSelectedValues] = useState(null);
+  let mapCategory = dataEvents.map((element) => element.category);
+  let unicoCategory = [...new Set(mapCategory)];
 
-  const [selectedValue, setSelectedValue] = useState("kennedy");
-  // const [modalVisible, setModalVisible] = useState(false)
+ const localidades = ()=>{
+    let arrayLocality = [];
+    console.log(arrayLocality);
+    for ( let i= 0; i < dataEvents.length; i++) {
+    let localidad = dataEvents[i].locality;
+    for (let j= 0; j < localidad.length; j++){
+      let allLocality = localidad[j];
+      console.log(allLocality);
+      arrayLocality.push(allLocality);
+    }
+    }
+    return arrayLocality
+  }
+  let unicaUbicacion = [...new Set(localidades())]; 
+
 
     return (
-        <ScrollView style={{ backgroundColor: 'white' }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', headerTitleAlign: "center",}}>
-            <Image  source={header} style={stylesHome.imagen} />
-          </View>
-       
+      <Container style={{ flex: 1 , justifyContent:'center', alignItems: 'center' }} >
+<Content>
+
+        <Image  source={header} style={stylesHome.imagen} />
       <View style={stylesHome.containerSelect} >
       <Picker
-        selectedValue={selectedValue}
+        selectedValue={selectedValues}
         style={stylesHome.select} 
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-        <Picker.Item label="Ubicación" value="java" />
-        <Picker.Item label="Kennedy" value="js" />
+        onValueChange={(itemValue, itemIndex) => setSelectedValues(itemValue)}>
+          
+        <Picker.Item label="Ubicación" value="localidad" padder/>{
+          unicaUbicacion.map((element)=>
+          <Picker.Item label={element} value={element} /> 
+          ) 
+        } 
       </Picker>
       <Picker
         selectedValue={selectedValue}
         style= {stylesHome.select} 
-        onValueChange={() => setSelectedValue(e.target.value)} >
-        <Picker.Item label='Ubicación' value="java" />
-        <Picker.Item label="Caminatas" value="js" />
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)} >
+        <Picker.Item label="Categorias" value="java" padder/>{
+          unicoCategory.map((event) => 
+          <Picker.Item label={event} value={event}/>
+            )}
       </Picker>
       </View>
       <View>
       <Calendar>        
       </Calendar>
-
-      {/* <Button
-        onPress={() => setModalVisible(true)}>
-        <Text >Show Modal</Text>
-      </Button>  */}
-
-         {/* <Modal
-        transparent={true}
-          animationType="slide"
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-            setModalVisible(!modalVisible);
-            }}
-          ><View  style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 22,
-            backgroundColor: 'rgba(0, 0, 0, 0.50)'
-          }}>
-          <View style={{
-          margin: 20,
-          backgroundColor: "white",
-          borderRadius: 20,
-          padding: 35,
-          alignItems: "center",
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 2
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 4,
-          elevation: 5}} >
-        <Text >Hello World!</Text>
-        <Button
-          onPress={() => setModalVisible(false)}>
-          <Text>Hide Modal</Text>
-        </Button>
       </View>
-    </View>
-  </Modal> */}
-
-
-          <Content>         
-            <CardEvent objNavigate={navigation}/>
+      <CardEvent objNavigate={navigation} selectUbicacion={selectedValues} selectCategoria={selectedValue}  />            
       </Content>
-      </View>
-    </ScrollView>
+      </Container>
+  
+        
     ) }
 
 const stylesHome = StyleSheet.create({
   select: {
     borderRadius: 10,
-    width: 10,
+    width: 120,
     height: 30,
     margin: 10,
-    textAlign: 'center'
+    cursor: 'pointer',
+    borderRadius: 30,
+
   },
   boton: {
     backgroundColor: "rgba(89, 251, 218, 1)",
     width: 80,
     height: 30,
     margin: 10,
-    borderRadius: 15
+    borderRadius: 5,
+    textAlign: 'center',
+    padding: 2,
   },
   imagen: {
-    width: 330,
-    height: 130,
-    marginTop: 20,
-
+    width: 300,
+    height: 100,
+    marginTop: 10
   },
   containerSelect: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 20,
-    marginRight: 20
+    marginTop: 20
+  },
+  textBoton: {
+    color: '#584799',
+    fontSize: 17,
+    fontWeight:'600'
+  },
+  textName:{
+    color: '#584799', 
+    fontWeight: '600', 
+    fontSize: 20
+  },
+  textDate :{ 
+    textAlign: 'justify',
+    fontSize: 15 },
+  textDetails: {
+    width: 190,
+    textAlign: 'justify',
+    marginBottom: 5
   }
 });
