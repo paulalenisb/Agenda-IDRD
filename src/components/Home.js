@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Modal } from 'react-native';
 import { Picker, Container, Content, CardItem, Left, Body, Button, Card, Title } from "native-base";
 const header = require('../../assets/Header.png');
@@ -34,26 +34,48 @@ const handlePressButton = () => {
 
 const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion}) => {
   console.log(selectCategoria, selectUbicacion)
+  const [currCategoria, setCurrCategoria] = useState()
 
   const filterUbicacion = dataEvents.filter((option)=> option.locality.includes(selectUbicacion))
     console.log(filterUbicacion) 
   
-  const filterCategoria = dataEvents.filter((option) => option.category === selectCategoria)
-  console.log(filterCategoria);
-  
-  const filter = () => {
-    if (filterUbicacion !== null ) {
-      return filterUbicacion
-    }  else if(filterCategoria !== null) { return  filterCategoria}  
-    else{    
-        return dataEvents   
-  }
+    const filterCategoria = dataEvents.filter((option) => option.category === selectCategoria)
+    console.log(filterCategoria);
+
+    const filterCategoria2 = filterUbicacion.filter((option) => option.category === selectCategoria)
+    console.log(filterCategoria2);
+
+    let dataEventsFilter;
+
+if(selectCategoria !== null && selectUbicacion !== null){
+      dataEventsFilter = filterCategoria2
+}/* else if (selectCategoria !== null || currCategoria !== selectCategoria) {
+  dataEventsFilter = filterCategoria
+}*/ else {
+    dataEventsFilter = dataEvents
 }
-const dataEventsFilter =(filter().length > 0 )? filter() :dataEvents
+
+const getData = async () => {
+  try {
+    const jsonValue = await AsyncStorage.getItem('@storage_Date')
+   return jsonValue != null ? JSON.parse(jsonValue) : null;
+    
+  } catch(e) {
+    // error reading value
+  }
+  
+}
+console.log(currCategoria)
+useEffect( async () => {
+    const date= await getData();
+    setCurrCategoria(date)
+
+}, [])
+
   
   return (
       <Content style={{ flex: 1 , flexDirection: 'row' }} padder>{
-       dataEvents.length > 0 ? (
+      dataEvents.length > 0 ? (
         dataEventsFilter.map((events, index) => {
           return (
               <Card style={{ flex: 2, flexDirection: 'row', }} >
