@@ -101,7 +101,7 @@ useEffect( async () => {
                 <CardItem>
                   <Left>
                     <Body>
-                      <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Monserrate_Sanctuary.JPG/1200px-Monserrate_Sanctuary.JPG' }} style={{ height: 80, width: 80, borderRadius: 5, margin: 0 }} />
+                      <Image source={{ uri:events.img }} style={{ height: 80, width: 80, borderRadius: 5, margin: 0 }} />
                     </Body>
                   </Left>
                 </CardItem>

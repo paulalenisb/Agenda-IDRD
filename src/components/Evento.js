@@ -71,9 +71,8 @@ export default function Evento(index) {
               {dataEvents[idx].audience}
             </Text>
           </View>
-
+          <Image source='../../assets/logo-idrd.png' style={{ width: 50, height:50 }}></Image>
         </Content>
-
       </Container>
     </ScrollView>
   )
