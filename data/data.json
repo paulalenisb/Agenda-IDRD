@@ -12,7 +12,7 @@
             "category": "Deporte",
             "audience": "Todo público",
             "locality": "Todas",
-            "img": "https://www.idrd.gov.co/sites/default/files/eventos/escuela-bici_18.jpg"
+            "img" : "https://recursosgratiseninternet.com/wp-content/uploads/2020/03/paseo-virtual-por-matera-italia.jpg"
         },
         {
             "name": "Caminata Virtual",
@@ -26,7 +26,7 @@
             "category": "Recreación",
             "audience": "Todo público",
             "locality": "Todas",
-            "img": "https://recursosgratiseninternet.com/wp-content/uploads/2020/03/paseo-virtual-por-matera-italia.jpg"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Bogota-Caminata.png"
         },
         {
             "name": "Caminata Virtual",
@@ -40,7 +40,7 @@
             "category": "Recreación",
             "audience": "Todo público",
             "locality": "Todas",
-            "img": "../img/Bogota-Caminata.png"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/protocolos%20(1).jpg"
         },
         {
             "name": "Protocolos de Bioseguridad",
@@ -54,7 +54,7 @@
             "category": "Otros eventos",
             "audience": "Todo público",
             "locality": "Todas",
-            "img": "../img/protocolos.png"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/protocolos%20(1).jpg"
         },
         {
             "name": "Protocolos de Bioseguridad",
@@ -68,7 +68,7 @@
             "category": "Otros eventos",
             "audience": "Todo público",
             "locality": "Todas",
-            "img": "../img/protocolos.png"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Ejercicio.jpg"
         },
         {
             "name": "Recreovía",
@@ -91,7 +91,7 @@
                 "Tunjuelito",
                 "Suba"
             ],
-            "img": "../img/Actividad-Fisica.png"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Monserrate.JPG"
         },
         {
             "name": "Ciclovía",
@@ -108,7 +108,7 @@
                 "Adultez"
             ],
             "locality": "Todas",
-            "img": "../img/Ciclovia.png"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Ciclovia.jpg"
         },
         {
             "name": "Recreovía",
@@ -139,7 +139,7 @@
                 "Rafael Uribe Uribe",
                 "Ciudad Bolívar"
             ],
-            "img": "../img/Ejercicio.png"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Recreovia.JPG"
         },
         {
             "name": "Recreovía",
@@ -172,7 +172,7 @@
                 "Suba",
                 "Puente Aranda"
             ],
-            "img": "../img/Ejercicio2.png"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Ejercicio2.jpg"
         }
     ]
 }

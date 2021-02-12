@@ -1,7 +1,7 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Modal } from 'react-native';
 import { Picker, Container, Content, CardItem, Left, Body, Button, Card, Title } from "native-base";
+import moment from 'moment';
 const header = require('../../assets/Header.png');
 
 
@@ -32,28 +32,54 @@ const handlePressButton = () => {
   storeData(event)
 }
 
-const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion}) => {
+const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion, selectedDate}) => {
   console.log(selectCategoria, selectUbicacion)
+  const [currCategoria, setCurrCategoria] = useState()
 
-  const filterUbicacion = dataEvents.filter((option)=> option.locality.includes(selectUbicacion))
+  const filterDate = dataEvents.filter ((option) => option.date === selectedDate)
+  console.log(filterDate);
+
+  const filterUbicacion = filterDate.filter((option)=> option.locality.includes(selectUbicacion))
     console.log(filterUbicacion) 
   
-  const filterCategoria = dataEvents.filter((option) => option.category === selectCategoria)
-  console.log(filterCategoria);
-  
-  const filter = () => {
-    if (filterUbicacion !== null ) {
-      return filterUbicacion
-    }  else if(filterCategoria !== null) { return  filterCategoria}  
-    else{    
-        return dataEvents   
-  }
+    const filterCategoria = filterDate.filter((option) => option.category === selectCategoria)
+    console.log(filterCategoria);
+
+    const filterCategoria2 = filterUbicacion.filter((option) => option.category === selectCategoria)
+    console.log(filterCategoria2);
+
+    let dataEventsFilter;
+
+if(selectCategoria !== null && selectUbicacion !== null){
+      dataEventsFilter = filterCategoria2
+}/* else if (selectCategoria !== null || currCategoria !== selectCategoria) {
+  dataEventsFilter = filterCategoria
+}*/ 
+else {
+    dataEventsFilter = filterDate
 }
-const dataEventsFilter =(filter().length > 0 )? filter() :dataEvents
+
+const getData = async () => {
+  try {
+    const jsonValue = await AsyncStorage.getItem('@storage_Date')
+   return jsonValue != null ? JSON.parse(jsonValue) : null;
+    
+  } catch(e) {
+    // error reading value
+  }
+  
+}
+console.log(currCategoria)
+useEffect( async () => {
+    const date= await getData();
+    setCurrCategoria(date)
+
+}, [])
+
   
   return (
       <Content style={{ flex: 1 , flexDirection: 'row' }} padder>{
-       dataEvents.length > 0 ? (
+      dataEvents.length > 0 ? (
         dataEventsFilter.map((events, index) => {
           return (
               <Card style={{ flex: 2, flexDirection: 'row', }} >
@@ -95,9 +121,11 @@ const dataEventsFilter =(filter().length > 0 )? filter() :dataEvents
 export default function Home({navigation}) {
   const [selectedValue, setSelectedValue] = useState(null);
   const [selectedValues, setSelectedValues] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
+  
   let mapCategory = dataEvents.map((element) => element.category);
   let unicoCategory = [...new Set(mapCategory)];
-
+  console.log(selectedDate);
  const localidades = ()=>{
     let arrayLocality = [];
     console.log(arrayLocality);
@@ -142,10 +170,13 @@ export default function Home({navigation}) {
       </Picker>
       </View>
       <View>
-      <Calendar>        
+      <Calendar
+        setSelectedDate= {setSelectedDate}
+      >
+                
       </Calendar>
       </View>
-      <CardEvent objNavigate={navigation} selectUbicacion={selectedValues} selectCategoria={selectedValue}  />            
+      <CardEvent objNavigate={navigation} selectUbicacion={selectedValues} selectCategoria={selectedValue}  selectedDate={selectedDate}/>            
       </Content>
       </Container>
   
