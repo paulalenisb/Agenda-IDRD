@@ -113,7 +113,7 @@ useEffect( async () => {
                     <Button onPress={handlePressButton} title="crear recordatorio"></Button>
                   </Body>
                   <Body style={{ flex: 2, flexDirection: 'row' }}>
-                    <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', {index})}>
+                    <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', {events})}>
                       <Text style={stylesHome.textBoton} >Ver más</Text></TouchableOpacity>
                     <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Mi agenda')}>
                     <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} onPress={() => handlePressButton({
