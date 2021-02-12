@@ -165,8 +165,8 @@ export default function Home({navigation}) {
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', headerTitleAlign: "center"}}>
         <Image source={header} style={stylesHome.imagen} />
       </View>
-//       <Container style={{ flex: 1 , justifyContent:'center', alignItems: 'center' }} >
-// <Content>
+{/* //       <Container style={{ flex: 1 , justifyContent:'center', alignItems: 'center' }} >
+// <Content> */}
 
       <View style={stylesHome.containerSelect} >
       <Picker
@@ -197,8 +197,8 @@ export default function Home({navigation}) {
       <Content>
       <CardEvent objNavigate={navigation} selectUbicacion={selectedValues} selectCategoria={selectedValue}  />            
       </Content>
-//       </Container>
-     </View>
+{/* //       </Container> */}
+     {/* </View> */}
     </ScrollView>
   
         
