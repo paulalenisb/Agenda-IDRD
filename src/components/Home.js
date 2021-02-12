@@ -1,35 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Modal } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Modal, Alert } from 'react-native';
 import { Picker, Container, Content, CardItem, Left, Body, Button, Card, Title } from "native-base";
 import moment from 'moment';
 const header = require('../../assets/Header.png');
-
-
 import Calendar from '../components/calendarHome'
-
-
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import swal from '@sweetalert/with-react';
 import data from '../../data/events.json'
 
 let dataEvents = data.events;
 
-const event = {
-  name: "Recorrido bicicleta",
-  date: "2021-02-23"
-}
 
 const storeData = async (value) => {
   try {
-    const jsonValue = JSON.stringify(value)
-    await AsyncStorage.setItem('@storage_Key', jsonValue)
+    const jsonValue = await AsyncStorage.getItem("@storage_Key");
+    const eventsValues = JSON.parse(jsonValue);
+
+    let eventsList = []
+    if (eventsValues == null) {
+      eventsList = [value]
+    } else {
+      eventsList = [...eventsValues, value]
+    }
+    console.log(eventsValues);
+
+    const newJsonValue = JSON.stringify(eventsList)
+    console.log(newJsonValue);
+    await AsyncStorage.setItem('@storage_Key', newJsonValue)
+
   } catch (e) {
-    // saving error
   }
 }
 
-const handlePressButton = () => {
-  alert("crear recordatorio")
-  storeData(event)
+
+const handlePressButton = async (newEvent) => {
+  storeData(newEvent)
+  swal(
+    <View style={styles.modal}>
+      <Text style={styles.title}>Te esperamos</Text>
+      <Text style={styles.container}>{newEvent.name}</Text>
+      <Text style={styles.spot}>{newEvent.date}</Text>
+    </View>,
+    {
+      icon: "success",
+    }
+  )
 }
 
 const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion, selectedDate}) => {
@@ -101,7 +116,14 @@ useEffect( async () => {
                     <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', {index})}>
                       <Text style={stylesHome.textBoton} >Ver más</Text></TouchableOpacity>
                     <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Mi agenda')}>
-                <Text style={stylesHome.textBoton}>Reservar</Text>
+                    <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} onPress={() => handlePressButton({
+                        date: events.date,
+                        dateName: events.dateName,
+                        name: events.name,
+                        place: events.place,
+                        audience: events.audience,
+                        hour1: events.hour1
+                      })}>Asistir</Text>
               </TouchableOpacity>
                   </Body>
                 </CardItem>
@@ -229,5 +251,37 @@ const stylesHome = StyleSheet.create({
     width: 190,
     textAlign: 'justify',
     marginBottom: 5
+  }
+});
+
+
+const styles = StyleSheet.create({
+  modal: {
+    flex: 1,
+    padding: 6,
+    fontFamily: "Arial",
+    textAlign: "center",
+    fontSize: 30,
+  },
+  title: {
+    margin: 4,
+    padding: 4,
+    color: "#584799",
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  content: {
+    margin: 2,
+    padding: 4,
+    color: "000000",
+    fontSize: 20,
+    fontWeight: "regular",
+  },
+  spot: {
+    margin: 2,
+    padding: 4,
+    color: "000000",
+    fontSize: 18,
+    fontWeight: "regular",
   }
 });

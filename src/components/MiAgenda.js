@@ -3,10 +3,12 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { Container, Content, Header, H1, H2, H3, Card, CardItem, Left, Body, Right, Title } from 'native-base';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import { MaterialIcons } from '@expo/vector-icons';
 
 
 export default function MiAgenda() {
   const [state, setState] = useState([]);
+  const [event, setEvent] = useState([])
   let markedDate = {};
 
   state.forEach((date) => {
@@ -16,15 +18,23 @@ export default function MiAgenda() {
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem("@storage_Key");
-      const eventsValues = JSON.parse(jsonValue);
-      setState(eventsValues.map((dateEvent) => dateEvent.date));
 
+      if(jsonValue){
+        const eventsValues = JSON.parse(jsonValue);
+        setState(eventsValues.map((dateEvent) => dateEvent.date));
+        setEvent(eventsValues)
+        //  console.log(event);
+
+      }
+      // console.log(eventsValue);
     } catch (e) {
       console.log("Error");
     }
   };
 
-  useEffect(() => {getData()});
+ 
+
+  useEffect(() => {getData()}, []);
 
   return (
     <ScrollView style={{ backgroundColor: 'white' }}>
@@ -101,22 +111,27 @@ export default function MiAgenda() {
       <H2 style={{ color: '#584799', fontWeight: 'bold', marginLeft: 20 }}>Próximos eventos</H2>
       <Container>
         <Content>
-          {/* {
-          eventsValues.
-          } */}
-          <Card style={{ flex: 1, flexDirection: 'row', borderRadius: 10, border: 0 }}>
+          {event &&
+          event.map((item, index) => {
+            // const idx = index.route.params.index;
+            // console.log(item.name);
+            // console.log(item.dateName);
+            return(
+            
+           
+              <Card style={{ flex: 1, flexDirection: 'row', borderRadius: 10, border: 0 }} key={index}>
             <CardItem>
               <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
                 <View style={{ backgroundColor: '#59FBDA', flex: 1, aspectRatio: 1, width: 70, borderRadius: 10 }}>
-                  <Text style={{ color: '#584799', fontWeight: 'bold', fontSize: 20, textAlign: 'center', marginTop: 5 }}>Mie</Text>
+                  <Text style={{ color: '#584799', fontWeight: 'bold', fontSize: 20, textAlign: 'center', marginTop: 5 }}>{item.dateName}</Text>
                   <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center', marginBottom: 5 }}>10</Text>
                 </View>
               </View>
 
               <View style={{ marginLeft: 20 }}>
-                <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center' }}>Caminata Virtual</Text>
-                <Text>19:30 <Image
-                  source={require('../icons/Icon-place.png')}
+                <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center' }}>{item.name}</Text>
+                <MaterialIcons name="place" size={20} color="#584799" />
+                <Text>{item.hour1} <Image
                   style={{ width: 17, height: 22 }}
                 /> Online</Text>
               </View>
@@ -124,24 +139,13 @@ export default function MiAgenda() {
             </CardItem>
           </Card>
 
-          <Card style={{ flex: 1, flexDirection: 'row', borderRadius: 10, border: 0 }}>
-            <CardItem>
-              <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
-                <View style={{ backgroundColor: '#59FBDA', flex: 1, aspectRatio: 1, width: 70, borderRadius: 10 }}>
-                  <Text style={{ color: '#584799', fontWeight: 'bold', fontSize: 20, textAlign: 'center', marginTop: 5 }} >MIE</Text>
-                  <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center', marginBottom: 5 }}>10</Text>
-                </View>
-              </View>
-
-              <View style={{ marginLeft: 20 }}>
-                <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center' }}>Caminata Virtual</Text>
-                <Text>19:30 <Image
-                  source={require('../icons/Icon-place.png')}
-                  style={{ width: 17, height: 22 }}
-                /> Online</Text>
-              </View>
-            </CardItem>
-          </Card>
+          )}
+            
+            
+          
+          )
+          }  
+         
         </Content>
       </Container>
     </ScrollView>

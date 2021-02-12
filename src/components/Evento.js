@@ -4,7 +4,7 @@ import { Container, Content, Button } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import swal from '@sweetalert/with-react';
-import data from '../../data/data.json'
+import data from '../../data/events.json'
 
 console.log(data.events);
 const dataEvents = data.events;
@@ -40,9 +40,9 @@ export default function Evento(index) {
 
         <View style={{ flexDirection: 'row', marginTop: -100, marginLeft: 30 }}>
           <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 18, textAlign: 'center', fontWeight: '600', borderRadius: 10 }} >
-            {dataEvents[idx].date}
+            {dataEvents[idx].dateName}
           </Text>
-          <Text style={{ width: 100, height: 100, fontWeight: '600', fontSize: 18, marginLeft: 10 }}> {dataEvents[idx].hour1} </Text>
+          <Text style={{ width: 100, height: 100, fontWeight: '600', fontSize: 18, marginLeft: 10 }}> {dataEvents[idx].hourName} </Text>
           <Button rounded style={{ backgroundColor: '#59FBDA', marginLeft: 40 }} onPress={() => handlePressButton()} >
             <Text style={{ width: 100, color: '#584799', fontSize: 20, textAlign: 'center', fontWeight: '600' }}>Añadir</Text>
           </Button>
