@@ -1,0 +1,217 @@
+{
+    "events": [
+        {
+            "name": "Escuela de la Bicicleta",
+            "details": "Escuela de la Bicicleta en Parques",
+            "date": "2021-02-10",
+            "dateName": "FEB 10",
+            "hour": "05:00 p.m.",
+            "hourName": "Miércoles 5:00 PM",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Deporte",
+            "audience": "Todo público",
+            "locality": ["Todas"],
+            "img": "https://www.idrd.gov.co/sites/default/files/eventos/escuela-bici_18.jpg"
+        },
+        {
+            "name": "Caminata Virtual Fontibón",
+            "details": "Caminata Virtual localidad de Fontibón",
+            "date": "2021-02-12",
+            "dateName": "FEB 12",
+            "hour": "10:00 a.m.",
+            "hourName": "Viernes 10:00 AM",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Recreación",
+            "audience": "Todo público",
+            "locality": ["Todas"],
+            "img" : "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/jason/data/img/caminata.jpg"
+        },
+        {
+            "name": "Caminata Virtual Bogotá",
+            "details": "Principales festividades en Bogotá",
+            "date": "2021-02-14",
+            "dateName": "FEB 14",
+            "hour": "10:00 a.m.",
+            "hourName": "Domingo 10:00 AM",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Recreación",
+            "audience": "Todo público",
+            "locality": ["Todas"],
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Bogota-Caminata.png"
+        },
+        {
+            "name": "Protocolos de Bioseguridad",
+            "details": "Inducción sobre los elementos de protección personal y los Protocolos de Bioseguridad",
+            "date": "2021-02-09",
+            "dateName": "FEB 09",
+            "hour": "07:00 a.m.",
+            "hourName": "Martes 7:00 AM",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Otros eventos",
+            "audience": "Todo público",
+            "locality": ["Todas"],
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/protocolos%20(1).jpg"
+        },
+        {
+            "name": "Protocolos de Bioseguridad",
+            "details": "Inducción sobre los elementos de protección personal y los Protocolos de Bioseguridad",
+            "date": "2021-02-10",
+            "dateName": "FEB 10",
+            "hour": "09:00 a.m.",
+            "hourName": "Miércoles 9:00 AM",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Otros eventos",
+            "audience": "Todo público",
+            "locality": ["Todas"],
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/protocolos%20(1).jpg"
+        },
+        {
+            "name": "Recreovía",
+            "details": "Sesiones de actividad física en los parques de 8:00 a.m. a 1:00 p.m.",
+            "date": "2021-02-14",
+            "dateName": "FEB 14",
+            "hour": "08:00 a.m.",
+            "hourName": "Domingo 8:00 AM",
+            "place": [
+                "Parque Metropolitano El Tunal",
+                "Parque Zonal Fontanar del Río"
+            ],
+            "access": "Gratis",
+            "link": "www.idrd.gov.co",
+            "category": "Actividad física",
+            "audience": [
+                "Adolescencia",
+                "Adultez"
+            ],
+            "locality": [
+                "Tunjuelito",
+                "Suba"
+            ],
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/jason/data/img/Recreovia_3.jpg"
+        },
+        {
+            "name": "Caminata Virtual",
+            "details": "Caminata Virtual Monserrate, conociendo el Sendero y la historia del lugar",
+            "date": "2021-02-08",
+            "dateName": "FEB 08",
+            "hour": "07:30 a.m.",
+            "hourName": "Lunes 7:30 AM",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Recreación",
+            "audience": "Todo público",
+            "locality": ["Todas"],
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Monserrate.JPG"
+        },
+        {
+            "name": "Ciclovía",
+            "details": "Ciclovía Dominical (Sujeto a cambios por orden distrital)",
+            "date": "2021-02-14",
+            "dateName": "FEB 14",
+            "hour": "07:00 a.m.",
+            "hourName": "Domingo 7:00 AM",
+            "place": "Corredores de Bogotá",
+            "access": "Gratis",
+            "link": "www.idrd.gov.co",
+            "category": "Deporte",
+            "audience": [
+                "Adolescencia ",
+                "Adultez"
+            ],
+            "locality": ["Todas"],
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Ciclovia.jpg"
+        },
+        {
+            "name": "Caminata Virtual",
+            "details": "Caminata Virtual Páramo de Sumapaz",
+            "date": "2021-02-13",
+            "dateName": "FEB 13",
+            "hour": "10:00 a.m.",
+            "hourName": "Sábado 10:00 AM",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Recreación",
+            "audience": "Todo público",
+            "locality": ["Todas"],
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/jason/data/img/Caminata_2.jpg"
+        },
+        {
+            "name": "Recreovía",
+            "details": "Sesiones de actividad física en Parques de 7:00 am a 10:00 am",
+            "date": "2021-02-09",
+            "dateName": "FEB 09",
+            "hour": "07:00 a.m.",
+            "hourName": "Martes 7:00 AM",
+            "place": [
+                "Parque Las Cruces",
+                "La Victoria",
+                "Parque Serena",
+                "Parque Eduardo Santos",
+                "Parque Molinos II",
+                "sector Parque Candelaria la nueva"
+            ],
+            "access": "Gratis",
+            "link": "www.idrd.gov.co",
+            "category": "Actividad física",
+            "audience": [
+                "Adolescencia ",
+                "Adultez"
+            ],
+            "locality": [
+                "Santa Fe",
+                "San Cristóbal",
+                "Engativá",
+                "Mártires",
+                "Rafael Uribe Uribe",
+                "Ciudad Bolívar"
+            ],
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/jason/data/img/Recreovia_1.JPG"
+        },
+        {
+            "name": "Recreovía",
+            "details": "Sesiones de actividad física en Parques de 7:00 am a 10:00 am",
+            "date": "2021-02-12",
+            "dateName": "FEB 12",
+            "hour": "07:00 a.m.",
+            "hourName": "Viernes 7:00 AM",
+            "place": [
+                "Parque Alta Blanca",
+                "La Andrea",
+                "Parque Naranjos",
+                "Parque Timiza",
+                "Parque San Andrés",
+                "Parque La Gaitana",
+                "Polideportivo El Jazmín"
+            ],
+            "access": "Gratis",
+            "link": "www.idrd.gov.co",
+            "category": "Actividad física",
+            "audience": [
+                "Adolescencia ",
+                "Adultez"
+            ],
+            "locality": [
+                "Usaquén",
+                "Usme",
+                "Bosa",
+                "Kennedy",
+                "Engativá",
+                "Suba",
+                "Puente Aranda"
+            ],
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Ejercicio2.jpg"
+        }
+    ]
+}
