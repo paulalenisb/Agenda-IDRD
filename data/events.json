@@ -100,6 +100,21 @@
             "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Ejercicio.jpg"
         },
         {
+            "name": "Caminata Virtual",
+            "details": "Caminata Virtual Monserrate, conociendo el Sendero y la historia del lugar",
+            "date": "2021-02-08",
+            "dateName": "FEB 08",
+            "hour1": "07:30:00 a.m.",
+            "hour2": "08:30:00 a.m.",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Recreación",
+            "audience": "Todo público",
+            "locality": "Todas",
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Monserrate.JPG"
+        },
+        {
             "name": "Ciclovía",
             "details": "Ciclovía Dominical (Sujeto a cambios por orden distrital)",
             "date": "2021-02-14",
@@ -116,6 +131,20 @@
             ],
             "locality": "Todas",
             "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Ciclovia.jpg"
+        },
+        {
+            "name": "Caminata Virtual",
+            "details": "Caminata Virtual Páramo de Sumapaz",
+            "date": "2021-02-13",
+            "dateName": "FEB 13",
+            "hour1": "10:00:00 a.m.",
+            "hour2": "11:30:00 a.m.",
+            "place": "Online",
+            "access": "Gratis",
+            "link": "https://www.facebook.com/IDRDBogota",
+            "category": "Recreación",
+            "audience": "Todo público",
+            "locality": "Todas"
         },
         {
             "name": "Recreovía",
@@ -147,7 +176,7 @@
                 "Rafael Uribe Uribe",
                 "Ciudad Bolívar"
             ],
-            "img": "https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/develop/data/img/Ejercicio.jpg"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Recreovia.JPG"
         },
         {
             "name": "Recreovía",
