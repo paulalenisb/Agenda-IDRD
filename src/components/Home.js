@@ -1,39 +1,55 @@
-
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Modal } from 'react-native';
+import React, { useState } from 'react';
+import * as Font from 'expo-font';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Modal, Alert } from 'react-native';
 import { Picker, Container, Content, CardItem, Left, Body, Button, Card, Title } from "native-base";
+import Calendar from '../components/calendarHome';
+import swal from '@sweetalert/with-react';
+import data from '../../data/events.json'
+
+const dataEvents = data.events;
 const header = require('../../assets/Header.png');
 
 
-import Calendar from '../components/calendarHome'
-
-
-
-import data from '../../data/events.json'
-
-let dataEvents = data.events;
-
-const event = {
-  name: "Recorrido bicicleta",
-  date: "2021-02-23"
-}
 
 const storeData = async (value) => {
   try {
-    const jsonValue = JSON.stringify(value)
-    await AsyncStorage.setItem('@storage_Key', jsonValue)
+    const jsonValue = await AsyncStorage.getItem("@storage_Key");
+    const eventsValues = JSON.parse(jsonValue);
+
+    let eventsList = []
+    if (eventsValues == null) {
+      eventsList = [value]
+    } else {
+      eventsList = [...eventsValues, value]
+    }
+    console.log(eventsValues);
+
+    const newJsonValue = JSON.stringify(eventsList)
+    console.log(newJsonValue);
+    await AsyncStorage.setItem('@storage_Key', newJsonValue)
+
   } catch (e) {
-    // saving error
   }
 }
 
-const handlePressButton = () => {
-  alert("crear recordatorio")
-  storeData(event)
+const handlePressButton = async (newEvent) => {
+  storeData(newEvent)
+  swal(
+    <View style={styles.modal}>
+      <Text style={styles.title}>Te esperamos</Text>
+      <Text style={styles.container}>{newEvent.name}</Text>
+      <Text style={styles.spot}>{newEvent.date}</Text>
+    </View>,
+    {
+      icon: "success",
+    }
+  )
 }
 
-const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion}) => {
-  console.log(selectCategoria, selectUbicacion)
+ 
+const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion }) => {
+    console.log(selectCategoria, selectUbicacion)
   const [currCategoria, setCurrCategoria] = useState()
 
   const filterUbicacion = dataEvents.filter((option)=> option.locality.includes(selectUbicacion))
@@ -72,46 +88,54 @@ useEffect( async () => {
 
 }, [])
 
-  
+
+
   return (
-      <Content style={{ flex: 1 , flexDirection: 'row' }} padder>{
-      dataEvents.length > 0 ? (
-        dataEventsFilter.map((events, index) => {
+    <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Content padder>
+        {dataEvents.map((events, index) => {
+          console.log(events.place);
           return (
-              <Card style={{ flex: 2, flexDirection: 'row', }} >
+            <ScrollView>
+              <Card style={{ flex: 1, flexDirection: 'row', borderRadius: 20, border: 0 }}>
                 <CardItem>
                   <Left>
                     <Body>
-                      <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Monserrate_Sanctuary.JPG/1200px-Monserrate_Sanctuary.JPG' }} style={{ height: 80, width: 80, borderRadius: 5, margin: 0 }} />
+                      <Image source={{ uri: events.img }} style={{ height: 100, width: 100, flex: 1, borderRadius: 5 }} />
                     </Body>
                   </Left>
                 </CardItem>
                 <CardItem style={{ flex: 2, flexDirection: 'column' }}>
-                  <Body style={{width:170, height:30}}>
-                    <Text style={ stylesHome.textName}>{events.name}</Text>
-                    <Text style={stylesHome.textDetails}>{events.details}</Text>
-                    <Text style={stylesHome.textDate}>{events.date}</Text>
-                    <Button onPress={handlePressButton} title="crear recordatorio"></Button>
+                  <Body>
+                    <Text style={{ color: '#584799', fontWeight: 600, fontSize: 20 }}>{events.name}</Text>
+                    <Text style={{ textAlign: 'justify', fontSize: 12, marginRight: 10, marginBottom: 10, marginTop: 10 }}>{events.details}</Text>
                   </Body>
                   <Body style={{ flex: 2, flexDirection: 'row' }}>
-                    <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento')}>
-                      <Text style={stylesHome.textBoton} >Ver más</Text></TouchableOpacity>
+                    <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', { index })}>
+                      <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold', alignItems: 'center' }} >Ver más</Text></TouchableOpacity>
                     <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Mi agenda')}>
-                <Text style={stylesHome.textBoton}>Reservar</Text>
-              </TouchableOpacity>
+                      <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} onPress={() => handlePressButton({
+                        date: events.date,
+                        dateName: events.dateName,
+                        name: events.name,
+                        place: events.place,
+                        audience: events.audience,
+                        hour1: events.hour1
+                      })}>Asistir</Text>
+                    </TouchableOpacity>
                   </Body>
                 </CardItem>
               </Card>
-          ) 
+            </ScrollView>
+          )
         }
-        )
-        ) : null
-      }
-    
-        
+        ): null}
+
       </Content>
+    </ScrollView>
   )
 }
+
 
 
 export default function Home({navigation}) {
@@ -137,10 +161,13 @@ export default function Home({navigation}) {
 
 
     return (
-      <Container style={{ flex: 1 , justifyContent:'center', alignItems: 'center' }} >
-<Content>
+        <ScrollView style={{ backgroundColor: 'white' }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', headerTitleAlign: "center"}}>
+        <Image source={header} style={stylesHome.imagen} />
+      </View>
+//       <Container style={{ flex: 1 , justifyContent:'center', alignItems: 'center' }} >
+// <Content>
 
-        <Image  source={header} style={stylesHome.imagen} />
       <View style={stylesHome.containerSelect} >
       <Picker
         selectedValue={selectedValues}
@@ -167,9 +194,12 @@ export default function Home({navigation}) {
       <Calendar>        
       </Calendar>
       </View>
+      <Content>
       <CardEvent objNavigate={navigation} selectUbicacion={selectedValues} selectCategoria={selectedValue}  />            
       </Content>
-      </Container>
+//       </Container>
+     </View>
+    </ScrollView>
   
         
     ) }
@@ -177,48 +207,85 @@ export default function Home({navigation}) {
 const stylesHome = StyleSheet.create({
   select: {
     borderRadius: 10,
-    width: 120,
+    width: 10,
     height: 30,
     margin: 10,
     cursor: 'pointer',
     borderRadius: 30,
-
+    textAlign: 'center',
+    borderColor: '#584799',
+    alignItems: 'center',
+    color: '#584799',
+    fontWeight: '600'
   },
   boton: {
     backgroundColor: "rgba(89, 251, 218, 1)",
     width: 80,
     height: 30,
     margin: 10,
-    borderRadius: 5,
     textAlign: 'center',
     padding: 2,
+    borderRadius: 15,
+    justifyContent: 'center'
   },
   imagen: {
-    width: 300,
-    height: 100,
-    marginTop: 10
+    width: 330,
+    height: 130,
+    marginTop: 20,
+
   },
   containerSelect: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 20
+//     marginTop: 20
+//   },
+//   textBoton: {
+//     color: '#584799',
+//     fontSize: 17,
+//     fontWeight:'600'
+//   },
+//   textName:{
+//     color: '#584799', 
+//     fontWeight: '600', 
+//     fontSize: 20
+//   },
+//   textDate :{ 
+//     textAlign: 'justify',
+//     fontSize: 15 },
+//   textDetails: {
+//     width: 190,
+//     textAlign: 'justify',
+//     marginBottom: 5
+  }
+});
+
+const styles = StyleSheet.create({
+  modal: {
+    flex: 1,
+    padding: 6,
+    fontFamily: "Arial",
+    textAlign: "center",
+    fontSize: 30,
   },
-  textBoton: {
-    color: '#584799',
-    fontSize: 17,
-    fontWeight:'600'
+  title: {
+    margin: 4,
+    padding: 4,
+    color: "#584799",
+    fontSize: 24,
+    fontWeight: "bold",
   },
-  textName:{
-    color: '#584799', 
-    fontWeight: '600', 
-    fontSize: 20
+  content: {
+    margin: 2,
+    padding: 4,
+    color: "000000",
+    fontSize: 20,
+    fontWeight: "regular",
   },
-  textDate :{ 
-    textAlign: 'justify',
-    fontSize: 15 },
-  textDetails: {
-    width: 190,
-    textAlign: 'justify',
-    marginBottom: 5
+  spot: {
+    margin: 2,
+    padding: 4,
+    color: "000000",
+    fontSize: 18,
+    fontWeight: "regular",
   }
 });

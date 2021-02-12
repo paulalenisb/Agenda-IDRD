@@ -1,24 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { Container, Content, Header, H1, H2, H3, Card, CardItem, Left, Body, Right, Title } from 'native-base';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import { MaterialIcons } from '@expo/vector-icons';
 
 
-export default function MiAgenda({ date }) {
-  const [state, setState] = useState();
+export default function MiAgenda() {
+  const [state, setState] = useState([]);
+  const [event, setEvent] = useState([])
+  let markedDate = {};
+
+  state.forEach((date) => {
+    markedDate[date] = { selected: true, marked: true, selectedColor: "#59FBDA" }
+  })
 
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem("@storage_Key");
-      const eventsValues = JSON.parse(jsonValue);
-      setState(eventsValues.date);
-      alert(state);
 
+      if(jsonValue){
+        const eventsValues = JSON.parse(jsonValue);
+        setState(eventsValues.map((dateEvent) => dateEvent.date));
+        setEvent(eventsValues)
+        //  console.log(event);
+
+      }
+      // console.log(eventsValue);
     } catch (e) {
       console.log("Error");
     }
   };
+
+ 
+
+  useEffect(() => {getData()}, []);
 
   return (
     <ScrollView style={{ backgroundColor: 'white' }}>
@@ -26,25 +42,18 @@ export default function MiAgenda({ date }) {
         style={{ height: 280 }}
 
         theme={{
-          // backgroundColor: '#ffffff',
-          // calendarBackground: '#ffffff',
           textSectionTitleColor: '#b6c1cd',
           textSectionTitleDisabledColor: '#d9e1e8',
           selectedDayBackgroundColor: '#00adf5',
           selectedDayTextColor: '#584799',
           todayTextColor: '#584799',
           dayTextColor: '#2d4150',
-          // dayTextFontWeight: 'bold',
           textDisabledColor: '#d9e1e8',
           dotColor: '#00adf5',
-          // selectedDotColor: '#ffffff',
           arrowColor: 'orange',
           disabledArrowColor: '#d9e1e8',
           monthTextColor: '#584799',
           indicatorColor: 'blue',
-          // textDayFontFamily: 'monospace',
-          // textMonthFontFamily: 'monospace',
-          // textDayHeaderFontFamily: 'monospace',
           textDayFontWeight: '400',
           textMonthFontWeight: 'bold',
           textDayHeaderFontWeight: '400',
@@ -81,7 +90,7 @@ export default function MiAgenda({ date }) {
         // Hide day names. Default = false
         hideDayNames={true}
         // Show week numbers to the left. Default = false
-        showWeekNumbers={true}
+        showWeekNumbers={false}
         // Handler which gets executed when press arrow icon left. It receive a callback can go back month
         onPressArrowLeft={subtractMonth => subtractMonth()}
         // Handler which gets executed when press arrow icon right. It receive a callback can go next month
@@ -96,74 +105,49 @@ export default function MiAgenda({ date }) {
         // renderHeader={(date) => {/*Return JSX*/}}
         // Enable the option to swipe between months. Default = false
         enableSwipeMonths={true}
-        // markedDates={{
-        //   '2021-02-12': {selected: true, marked: true, selectedColor: '#59FBDA'},
-        //   '2021-02-15': {selected: true, marked: true, selectedColor: '#59FBDA'},
-        //   '2021-02-24': {selected: true, marked: true, selectedColor: '#59FBDA'},
-        //   '2021-02-27': {selected: true, marked: true, selectedColor: '#59FBDA'},
-        //   // '2021-02-17': {marked: true},
-        //   // '2021-02-20': {marked: true, dotColor: 'red', activeOpacity: 0},
-        //   // '2021-02-25': {disabled: true, disableTouchEvent: true}
-        // }
-        markedDates={{
-          [state]: { selected: true, marked: true, selectedColor: "blue" }
-        }}
+        markedDates={markedDate}
       />
 
       <H2 style={{ color: '#584799', fontWeight: 'bold', marginLeft: 20 }}>Próximos eventos</H2>
       <Container>
         <Content>
-          <Card style={{ flex: 1, flexDirection: 'row', borderRadius: 10, border: 0 }}>
+          {event &&
+          event.map((item, index) => {
+            // const idx = index.route.params.index;
+            // console.log(item.name);
+            // console.log(item.dateName);
+            return(
+            
+           
+              <Card style={{ flex: 1, flexDirection: 'row', borderRadius: 10, border: 0 }} key={index}>
             <CardItem>
-              {/* <Left> */}
               <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
                 <View style={{ backgroundColor: '#59FBDA', flex: 1, aspectRatio: 1, width: 70, borderRadius: 10 }}>
-                  <Text style={{ color: '#584799', fontWeight: 'bold', fontSize: 20, textAlign: 'center', marginTop: 5 }} >Mie</Text>
+                  <Text style={{ color: '#584799', fontWeight: 'bold', fontSize: 20, textAlign: 'center', marginTop: 5 }}>{item.dateName}</Text>
                   <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center', marginBottom: 5 }}>10</Text>
                 </View>
-
               </View>
-              {/* </Left>
-                      <Right > */}
+
               <View style={{ marginLeft: 20 }}>
-                <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center' }}>Caminata Virtual</Text>
-                <Text>19:30 <Image
-                  source={require('../icons/Icon-place.png')}
+                <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center' }}>{item.name}</Text>
+                <MaterialIcons name="place" size={20} color="#584799" />
+                <Text>{item.hour1} <Image
                   style={{ width: 17, height: 22 }}
                 /> Online</Text>
               </View>
-              {/* </Right> */}
+
             </CardItem>
           </Card>
 
-          <Card style={{ flex: 1, flexDirection: 'row', borderRadius: 10, border: 0 }}>
-            <CardItem>
-              {/* <Left> */}
-              <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
-                <View style={{ backgroundColor: '#59FBDA', flex: 1, aspectRatio: 1, width: 70, borderRadius: 10 }}>
-                  <Text style={{ color: '#584799', fontWeight: 'bold', fontSize: 20, textAlign: 'center', marginTop: 5 }} >Mie</Text>
-                  <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center', marginBottom: 5 }}>10</Text>
-                </View>
-
-              </View>
-              {/* </Left>
-                      <Right > */}
-              <View style={{ marginLeft: 20 }}>
-                <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center' }}>Caminata Virtual</Text>
-                <Text>19:30 <Image
-                  source={require('../icons/Icon-place.png')}
-                  style={{ width: 17, height: 22 }}
-                /> Online</Text>
-              </View>
-              {/* </Right> */}
-            </CardItem>
-          </Card>
+          )}
+            
+            
+          
+          )
+          }  
+         
         </Content>
       </Container>
-
-
     </ScrollView>
-
-
   )
-};
+}
