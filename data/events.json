@@ -72,7 +72,7 @@
             "link": "https://www.facebook.com/IDRDBogota",
             "category": "Otros eventos",
             "audience": "Todo público",
-            "locality": "Todas",
+            "locality": ["Todas"]
             "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/protocolos%20(1).jpg"
         },
         {
@@ -129,7 +129,7 @@
                 "Adolescencia ",
                 "Adultez"
             ],
-            "locality": "Todas",
+            "locality": ["Todas"]
             "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Ciclovia.jpg"
         },
         {

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -10,6 +9,7 @@ import data from '../../data/events.json'
 
 const dataEvents = data.events;
 const header = require('../../assets/Header.png');
+
 
 
 const storeData = async (value) => {
@@ -47,7 +47,47 @@ const handlePressButton = async (newEvent) => {
   )
 }
 
-const CardEvent = ({ objNavigate }) => {
+ 
+const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion }) => {
+    console.log(selectCategoria, selectUbicacion)
+  const [currCategoria, setCurrCategoria] = useState()
+
+  const filterUbicacion = dataEvents.filter((option)=> option.locality.includes(selectUbicacion))
+    console.log(filterUbicacion) 
+  
+    const filterCategoria = dataEvents.filter((option) => option.category === selectCategoria)
+    console.log(filterCategoria);
+
+    const filterCategoria2 = filterUbicacion.filter((option) => option.category === selectCategoria)
+    console.log(filterCategoria2);
+
+    let dataEventsFilter;
+
+if(selectCategoria !== null && selectUbicacion !== null){
+      dataEventsFilter = filterCategoria2
+}/* else if (selectCategoria !== null || currCategoria !== selectCategoria) {
+  dataEventsFilter = filterCategoria
+}*/ else {
+    dataEventsFilter = dataEvents
+}
+
+const getData = async () => {
+  try {
+    const jsonValue = await AsyncStorage.getItem('@storage_Date')
+   return jsonValue != null ? JSON.parse(jsonValue) : null;
+    
+  } catch(e) {
+    // error reading value
+  }
+  
+}
+console.log(currCategoria)
+useEffect( async () => {
+    const date= await getData();
+    setCurrCategoria(date)
+
+}, [])
+
 
 
   return (
@@ -65,13 +105,11 @@ const CardEvent = ({ objNavigate }) => {
                     </Body>
                   </Left>
                 </CardItem>
-
                 <CardItem style={{ flex: 2, flexDirection: 'column' }}>
                   <Body>
                     <Text style={{ color: '#584799', fontWeight: 600, fontSize: 20 }}>{events.name}</Text>
                     <Text style={{ textAlign: 'justify', fontSize: 12, marginRight: 10, marginBottom: 10, marginTop: 10 }}>{events.details}</Text>
                   </Body>
-
                   <Body style={{ flex: 2, flexDirection: 'row' }}>
                     <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', { index })}>
                       <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold', alignItems: 'center' }} >Ver más</Text></TouchableOpacity>
@@ -86,13 +124,12 @@ const CardEvent = ({ objNavigate }) => {
                       })}>Asistir</Text>
                     </TouchableOpacity>
                   </Body>
-
                 </CardItem>
               </Card>
             </ScrollView>
           )
         }
-        )}
+        ): null}
 
       </Content>
     </ScrollView>
@@ -100,42 +137,72 @@ const CardEvent = ({ objNavigate }) => {
 }
 
 
-export default function Home({ navigation }) {
 
-  const [selectedValue, setSelectedValue] = useState("kennedy");
+export default function Home({navigation}) {
+  const [selectedValue, setSelectedValue] = useState(null);
+  const [selectedValues, setSelectedValues] = useState(null);
+  let mapCategory = dataEvents.map((element) => element.category);
+  let unicoCategory = [...new Set(mapCategory)];
 
-  return (
-    <ScrollView style={{ backgroundColor: 'white' }}>
+ const localidades = ()=>{
+    let arrayLocality = [];
+    console.log(arrayLocality);
+    for ( let i= 0; i < dataEvents.length; i++) {
+    let localidad = dataEvents[i].locality;
+    for (let j= 0; j < localidad.length; j++){
+      let allLocality = localidad[j];
+      console.log(allLocality);
+      arrayLocality.push(allLocality);
+    }
+    }
+    return arrayLocality
+  }
+  let unicaUbicacion = [...new Set(localidades())]; 
+
+
+    return (
+        <ScrollView style={{ backgroundColor: 'white' }}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', headerTitleAlign: "center"}}>
         <Image source={header} style={stylesHome.imagen} />
       </View>
+//       <Container style={{ flex: 1 , justifyContent:'center', alignItems: 'center' }} >
+// <Content>
 
       <View style={stylesHome.containerSelect} >
-        <Picker
-          selectedValue={selectedValue}
-          style={stylesHome.select}
-          onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-          <Picker.Item label="Ubicación" value="java" />
-          <Picker.Item label="Kennedy" value="js" />
-        </Picker>
-        <Picker
-          selectedValue={selectedValue}
-          style={stylesHome.select}
-          onValueChange={() => setSelectedValue(e.target.value)} >
-          <Picker.Item label='Categorías' value="java" />
-          <Picker.Item label="Caminatas" value="js" />
-        </Picker>
+      <Picker
+        selectedValue={selectedValues}
+        style={stylesHome.select} 
+        onValueChange={(itemValue, itemIndex) => setSelectedValues(itemValue)}>
+          
+        <Picker.Item label="Ubicación" value="localidad" padder/>{
+          unicaUbicacion.map((element)=>
+          <Picker.Item label={element} value={element} /> 
+          ) 
+        } 
+      </Picker>
+      <Picker
+        selectedValue={selectedValue}
+        style= {stylesHome.select} 
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)} >
+        <Picker.Item label="Categorias" value="java" padder/>{
+          unicoCategory.map((event) => 
+          <Picker.Item label={event} value={event}/>
+            )}
+      </Picker>
       </View>
       <View>
-        <Calendar>
-        </Calendar>
-        <Content>
-          <CardEvent objNavigate={navigation} />
-        </Content>
+      <Calendar>        
+      </Calendar>
       </View>
+      <Content>
+      <CardEvent objNavigate={navigation} selectUbicacion={selectedValues} selectCategoria={selectedValue}  />            
+      </Content>
+//       </Container>
+     </View>
     </ScrollView>
-  )
-}
+  
+        
+    ) }
 
 const stylesHome = StyleSheet.create({
   select: {
@@ -143,6 +210,8 @@ const stylesHome = StyleSheet.create({
     width: 10,
     height: 30,
     margin: 10,
+    cursor: 'pointer',
+    borderRadius: 30,
     textAlign: 'center',
     borderColor: '#584799',
     alignItems: 'center',
@@ -154,6 +223,8 @@ const stylesHome = StyleSheet.create({
     width: 80,
     height: 30,
     margin: 10,
+    textAlign: 'center',
+    padding: 2,
     borderRadius: 15,
     justifyContent: 'center'
   },
@@ -166,8 +237,25 @@ const stylesHome = StyleSheet.create({
   containerSelect: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 20,
-    marginRight: 20,
+//     marginTop: 20
+//   },
+//   textBoton: {
+//     color: '#584799',
+//     fontSize: 17,
+//     fontWeight:'600'
+//   },
+//   textName:{
+//     color: '#584799', 
+//     fontWeight: '600', 
+//     fontSize: 20
+//   },
+//   textDate :{ 
+//     textAlign: 'justify',
+//     fontSize: 15 },
+//   textDetails: {
+//     width: 190,
+//     textAlign: 'justify',
+//     marginBottom: 5
   }
 });
 
