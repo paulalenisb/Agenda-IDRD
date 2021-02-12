@@ -70,8 +70,8 @@ export default function Calendar({setSelectedDate}) {
                 calendarColor={'#fff'}
                 dateNumberStyle={{ color: '#B8ADE2' }}
                 dateNameStyle={{ color: '#B8ADE2' }}
-                highlightDateNumberStyle={{ color: 'rgba(89, 251, 218, 1)' }}
-                highlightDateNameStyle={{ color: 'rgba(89, 251, 218, 1)' }}
+                highlightDateNumberStyle={{ color: '#584799' }}
+                highlightDateNameStyle={{ color: '#584799' }}
                 disabledDateNameStyle={{ color: '#584799' }}
                 disabledDateNumberStyle={{ color: '#584799' }}
                 // datesWhitelist={datesWhitelist}

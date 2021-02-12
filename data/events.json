@@ -28,7 +28,7 @@
             "category": "Recreación",
             "audience": "Todo público",
             "locality": ["Todas"],
-            "img" : "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/caminata.jpg"
+            "img" : "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/jason/data/img/caminata.jpg"
         },
         {
             "name": "Caminata Virtual Bogotá",
@@ -97,7 +97,7 @@
                 "Tunjuelito",
                 "Suba"
             ],
-            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Recreovia_1.JPG"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/jason/data/img/Recreovia_3.jpg"
         },
         {
             "name": "Caminata Virtual",
@@ -145,7 +145,7 @@
             "category": "Recreación",
             "audience": "Todo público",
             "locality": ["Todas"],
-            "img": "https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/jason/data/img/caminata.jpg?raw=true"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/jason/data/img/Caminata_2.jpg"
         },
         {
             "name": "Recreovía",
@@ -177,7 +177,7 @@
                 "Rafael Uribe Uribe",
                 "Ciudad Bolívar"
             ],
-            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/develop/data/img/Recreovia.JPG"
+            "img": "https://raw.githubusercontent.com/Angelik4/Talent-Fest-Reto-IDRD/jason/data/img/Recreovia_1.JPG"
         },
         {
             "name": "Recreovía",

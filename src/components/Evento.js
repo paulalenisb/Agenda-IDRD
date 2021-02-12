@@ -4,10 +4,7 @@ import { Container, Content, Button } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import swal from '@sweetalert/with-react';
-import data from '../../data/events.json'
 
-console.log(data.events);
-const dataEvents = data.events;
 
 
 const handlePressButton = () => {
@@ -22,53 +19,55 @@ const handlePressButton = () => {
 }
 
 
-export default function Evento(index) {
-  const idx = index.route.params.index;
+export default function Evento(events) {
+  const idx = events.route.params.events;
+  console.log(idx)
+  console.log(events)
 
   return (
     <ScrollView>
       <Container>{
-        console.log(dataEvents[idx])
+        //console.log(dataEvents[idx])
       }
         <Image
           style={styles.eventImage}
           resizeModel={'cover'}
-          source={{ uri: dataEvents[idx].img }}
+          source={{ uri: idx.img }}
         />
         <View style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 300, alignItems: 'center', justifyContent: 'center' }}>
         </View>
 
         <View style={{ flexDirection: 'row', marginTop: -100, marginLeft: 30 }}>
           <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 18, textAlign: 'center', fontWeight: '600', borderRadius: 10 }} >
-            {dataEvents[idx].dateName}
+            {idx.dateName}
           </Text>
-          <Text style={{ width: 100, height: 100, fontWeight: '600', fontSize: 18, marginLeft: 10 }}> {dataEvents[idx].hourName} </Text>
+          <Text style={{ width: 100, height: 100, fontWeight: '600', fontSize: 18, marginLeft: 10 }}> {idx.hourName} </Text>
           <Button rounded style={{ backgroundColor: '#59FBDA', marginLeft: 40 }} onPress={() => handlePressButton()} >
             <Text style={{ width: 100, color: '#584799', fontSize: 20, textAlign: 'center', fontWeight: '600' }}>Añadir</Text>
           </Button>
         </View>
         <Content style={{ marginLeft: 30, marginTop: -20, width: 300 }}>
           <Text style={{ fontWeight: 600, fontSize: 20, color: '#584799' }}>
-          {dataEvents[idx].name}
+          {idx.name}
           </Text>
           <Text>
-            {dataEvents[idx].details}
+            {idx.details}
           </Text>
           <Text style={{ color: '#584799', fontSize: 15, fontWeight: '600', marginTop: 10 }}>
-            {dataEvents[idx].link}</Text>
+            {idx.link}</Text>
 
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
             <MaterialIcons name="place" size={15} color="#59FBDA" />
             <Text style={{ width: 100 }}>
-              {dataEvents[idx].place}
+              {idx.place}
             </Text>
             <MaterialIcons name="attach-money" size={15} color="#59FBDA" />
             <Text style={{ width: 100 }}>
-              {dataEvents[idx].access}
+              {idx.access}
             </Text>
             <MaterialIcons name="group" size={15} color="#59FBDA" />
             <Text style={{ width: 100 }}>
-              {dataEvents[idx].audience}
+              {idx.audience}
             </Text>
           </View>
           <Image source='https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/developIDRD/assets/logo-idrd.png?raw=true' style={{ width: 200, height:50, marginLeft: 50, marginTop: 30 }}></Image>

@@ -93,28 +93,28 @@ useEffect( async () => {
 
   
   return (
-      <Content style={{ flex: 1 , flexDirection: 'row' }} padder>{
+    <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Content padder>{
       dataEvents.length > 0 ? (
         dataEventsFilter.map((events, index) => {
           return (
-              <Card style={{ flex: 2, flexDirection: 'row', }} >
+              <Card style={{ lex: 1, flexDirection: 'row', borderRadius: 20, border: 0 }} >
                 <CardItem>
                   <Left>
                     <Body>
-                      <Image source={{ uri:events.img }} style={{ height: 80, width: 80, borderRadius: 5, margin: 0 }} />
+                      <Image source={{ uri:events.img }} style={{ height: 100, width: 100, flex: 1, borderRadius: 5 }} />
                     </Body>
                   </Left>
                 </CardItem>
                 <CardItem style={{ flex: 2, flexDirection: 'column' }}>
                   <Body style={{width:170, height:30}}>
                     <Text style={ stylesHome.textName}>{events.name}</Text>
-                    <Text style={stylesHome.textDetails}>{events.details}</Text>
-                    <Text style={stylesHome.textDate}>{events.date}</Text>
-                    <Button onPress={handlePressButton} title="crear recordatorio"></Button>
+                    <Text style={{textAlign: 'justify', fontSize: 12, marginRight: 10, marginBottom: 10, marginTop: 10}}>{events.details}</Text>
+                    {/* <Text style={stylesHome.textDate}>{events.date}</Text> */}
                   </Body>
                   <Body style={{ flex: 2, flexDirection: 'row' }}>
-                    <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', {index})}>
-                      <Text style={stylesHome.textBoton} >Ver más</Text></TouchableOpacity>
+                    <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', {events})}>
+                      <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold', alignItems: 'center'}} >Ver más</Text></TouchableOpacity>
                     <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Mi agenda')}>
                     <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} onPress={() => handlePressButton({
                         date: events.date,
@@ -122,7 +122,7 @@ useEffect( async () => {
                         name: events.name,
                         place: events.place,
                         audience: events.audience,
-                        hour1: events.hour1
+                        hour: events.hour
                       })}>Asistir</Text>
               </TouchableOpacity>
                   </Body>
@@ -136,6 +136,7 @@ useEffect( async () => {
     
         
       </Content>
+      </ScrollView>
   )
 }
 
@@ -165,10 +166,12 @@ export default function Home({navigation}) {
 
 
     return (
-      <Container style={{ flex: 1 , justifyContent:'center', alignItems: 'center' }} >
-<Content>
 
-        <Image  source={header} style={stylesHome.imagen} />
+
+<ScrollView style={{ backgroundColor: 'white' }}>
+<View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', headerTitleAlign: "center"}}>
+        <Image source={header} style={stylesHome.imagen} />
+      </View>
       <View style={stylesHome.containerSelect} >
       <Picker
         selectedValue={selectedValues}
@@ -199,8 +202,8 @@ export default function Home({navigation}) {
       </Calendar>
       </View>
       <CardEvent objNavigate={navigation} selectUbicacion={selectedValues} selectCategoria={selectedValue}  selectedDate={selectedDate}/>            
-      </Content>
-      </Container>
+  
+      </ScrollView>
   
         
     ) }
@@ -208,11 +211,15 @@ export default function Home({navigation}) {
 const stylesHome = StyleSheet.create({
   select: {
     borderRadius: 10,
-    width: 120,
+    width: 10,
     height: 30,
     margin: 10,
-    cursor: 'pointer',
-    borderRadius: 30,
+    marginRight: 10,
+    textAlign: 'center',
+    borderColor: '#584799',
+    alignItems: 'center',
+    color: '#584799',
+    fontWeight: '600'
 
   },
   boton: {

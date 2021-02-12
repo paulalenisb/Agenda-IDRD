@@ -27,7 +27,7 @@ export default function App() {
         }
       }})}
       tabBarOptions= {{
-        inactiveTintColor:"rgba(0, 0, 0, 0.2)",
+        inactiveTintColor:"rgba(0, 0, 0, 0.3)",
         activeTintColor:"rgba(88, 71, 153, 1)"
       }}>
         <Tab.Screen name="Home" component={HomeStackNavigator} />

@@ -19,7 +19,7 @@ export default function MiAgenda() {
     try {
       const jsonValue = await AsyncStorage.getItem("@storage_Key");
 
-      if(jsonValue){
+      if (jsonValue) {
         const eventsValues = JSON.parse(jsonValue);
         setState(eventsValues.map((dateEvent) => dateEvent.date));
         setEvent(eventsValues)
@@ -32,9 +32,9 @@ export default function MiAgenda() {
     }
   };
 
- 
 
-  useEffect(() => {getData()}, []);
+
+  useEffect(() => { getData() }, []);
 
   return (
     <ScrollView style={{ backgroundColor: 'white' }}>
@@ -112,40 +112,48 @@ export default function MiAgenda() {
       <Container>
         <Content>
           {event &&
-          event.map((item, index) => {
-            // const idx = index.route.params.index;
-            // console.log(item.name);
-            // console.log(item.dateName);
-            return(
-            
-           
-              <Card style={{ flex: 1, flexDirection: 'row', borderRadius: 10, border: 0 }} key={index}>
-            <CardItem>
-              <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
-                <View style={{ backgroundColor: '#59FBDA', flex: 1, aspectRatio: 1, width: 70, borderRadius: 10 }}>
-                  <Text style={{ color: '#584799', fontWeight: 'bold', fontSize: 20, textAlign: 'center', marginTop: 5 }}>{item.dateName}</Text>
-                  <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center', marginBottom: 5 }}>10</Text>
-                </View>
+            event.map((item, index) => {
+              // const idx = index.route.params.index;
+              console.log(item.hour);
+              // console.log(item.dateName);
+              return (
+
+
+                <View>
+                <Card style={{flex: 1, flexDirection: 'row', borderRadius: 10, border: 0 }}>
+                <CardItem>
+                  {/* <Left> */}
+                    <View style={{flex: 1, justifyContent: 'center', alignContent: 'center' }}>
+                      
+                      <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 18, textAlign: 'center', fontWeight: '600', borderRadius: 10 }} >{item.dateName}</Text>
+                  
+                    </View>
+                  {/* </Left>
+                  <Right > */}
+                  {/* <View style={{flex: 1, flexDirection: 'column', marginLeft: 20}}>
+                      <Text style={{color:'#000', fontWeight: 600, fontSize: 18}}>{item.name}</Text>
+                      <Text>{item.hour}</Text>
+                      
+                    </View> */}
+                    <View style={{marginLeft: 20}}>
+                          <Text style={{color:'#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center'}}>{item.name}</Text>
+                          <Text>{item.hour}</Text>
+                        </View>
+                    
+                  {/* </Right> */}
+                </CardItem>
+              </Card>
+
               </View>
 
-              <View style={{ marginLeft: 20 }}>
-                <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center' }}>{item.name}</Text>
-                <MaterialIcons name="place" size={20} color="#584799" />
-                <Text>{item.hour1} <Image
-                  style={{ width: 17, height: 22 }}
-                /> Online</Text>
-              </View>
+              )
+            }
 
-            </CardItem>
-          </Card>
 
-          )}
-            
-            
-          
-          )
-          }  
-         
+
+            )
+          }
+
         </Content>
       </Container>
     </ScrollView>
