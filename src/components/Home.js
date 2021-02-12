@@ -41,20 +41,20 @@ const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion}) => {
   const filterCategoria = dataEvents.filter((option) => option.category === selectCategoria)
   console.log(filterCategoria);
   
-  let condicionFilter 
+  const filter = () => {
     if (filterUbicacion !== null ) {
-      condicionFilter = filterUbicacion
-    }  else if(filterCategoria !== null) { condicionFilter= filterCategoria}  
-    else{
-      condicionFilter= dataEvents
-    } 
-  
-  
+      return filterUbicacion
+    }  else if(filterCategoria !== null) { return  filterCategoria}  
+    else{    
+        return dataEvents   
+  }
+}
+const dataEventsFilter =(filter().length > 0 )? filter() :dataEvents
   
   return (
       <Content style={{ flex: 1 , flexDirection: 'row' }} padder>{
-        condicionFilter.length > 0 ? (
-        condicionFilter.map((events, index) => {
+       dataEvents.length > 0 ? (
+        dataEventsFilter.map((events, index) => {
           return (
               <Card style={{ flex: 2, flexDirection: 'row', }} >
                 <CardItem>
