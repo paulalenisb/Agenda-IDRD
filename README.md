@@ -43,4 +43,7 @@ Este proyecto se desarrollo en React Native con librerías como:
 - Sweets Alerts para los modales
 
 ## 6. Demo Night
-<p align="center"> <img src="https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/master/assets/demo-agendaIDRD.jpeg?raw=true" width="800" style="margin:10px"> <img style="margin:10px" src="https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/master/assets/1er-puesto.jpg?raw=true" width="500"> </p>
+
+Descripción del proyecto en la [Demo Night](https://www.youtube.com/watch?v=7iHyJyayl20&feature=emb_title&ab_channel=Laboratoria)
+<p align="center"> <img src="https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/master/assets/demo-agendaIDRD.jpeg?raw=true" width="800" style="margin:10px">
+ <img style="margin:10px" src="https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/master/assets/1er-puesto.jpg?raw=true" width="500"> </p>
