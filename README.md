@@ -33,6 +33,8 @@ Los usuarios podrán conocer con anticipación las diferentes actividades y prog
 <p align="center"> <img src="https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/master/assets/Home.png?raw=true" width="300" style="margin:10px"> <img style="margin:10px" src="https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/master/assets/Home-modal.png?raw=true" width="300"> </p>
 <p align="center"> <img src="https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/master/assets/evento.png?raw=true" width="300" style="margin:10px"> <img style="margin:10px" src="https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/master/assets/evento-modal.png?raw=true" width="300"> <img src="https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/master/assets/agenda.png?raw=true" width="300" style="margin:10px"></p>
 
+ver más de prototipo [aquí](https://www.figma.com/file/rjRozmN9NeBygkpcY4j2MI/Agenda-IDRD?node-id=0%3A1)
+
 ## 5. Tecnologías Usadas
 
 Este proyecto se desarrollo en React Native con librerías como:
