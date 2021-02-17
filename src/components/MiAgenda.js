@@ -23,10 +23,8 @@ export default function MiAgenda() {
         const eventsValues = JSON.parse(jsonValue);
         setState(eventsValues.map((dateEvent) => dateEvent.date));
         setEvent(eventsValues)
-        //  console.log(event);
-
       }
-      // console.log(eventsValue);
+
     } catch (e) {
       console.log("Error");
     }
@@ -101,8 +99,6 @@ export default function MiAgenda() {
         disableArrowRight={true}
         // Disable all touch events for disabled days. can be override with disableTouchEvent in markedDates
         disableAllTouchEventsForDisabledDays={true}
-        // Replace default month and year title with custom one. the function receive a date as parameter.
-        // renderHeader={(date) => {/*Return JSX*/}}
         // Enable the option to swipe between months. Default = false
         enableSwipeMonths={true}
         markedDates={markedDate}
@@ -113,47 +109,28 @@ export default function MiAgenda() {
         <Content>
           {event &&
             event.map((item, index) => {
-              // const idx = index.route.params.index;
-              console.log(item.hour);
-              // console.log(item.dateName);
               return (
 
 
                 <View>
-                <Card style={{flex: 1, flexDirection: 'row', borderRadius: 10, border: 0 }}>
-                <CardItem>
-                  {/* <Left> */}
-                    <View style={{flex: 1, justifyContent: 'center', alignContent: 'center' }}>
-                      
-                      <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 18, textAlign: 'center', fontWeight: '600', borderRadius: 10 }} >{item.dateName}</Text>
-                  
-                    </View>
-                  {/* </Left>
-                  <Right > */}
-                  {/* <View style={{flex: 1, flexDirection: 'column', marginLeft: 20}}>
-                      <Text style={{color:'#000', fontWeight: 600, fontSize: 18}}>{item.name}</Text>
-                      <Text>{item.hour}</Text>
-                      
-                    </View> */}
-                    <View style={{marginLeft: 20}}>
-                          <Text style={{color:'#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center'}}>{item.name}</Text>
-                          <Text>{item.hour}</Text>
-                        </View>
-                    
-                  {/* </Right> */}
-                </CardItem>
-              </Card>
+                  <Card style={{ flex: 1, flexDirection: 'row', borderRadius: 10, border: 0 }} index={index + 'c'}>
+                    <CardItem>
+                      <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
+                        <Text style={{ width: 50, height: 50, backgroundColor: '#59FBDA', color: '#584799', fontSize: 18, textAlign: 'center', fontWeight: '600', borderRadius: 10 }} >{item.dateName}</Text>
+                      </View>
 
-              </View>
+                      <View style={{ marginLeft: 20 }}>
+                        <Text style={{ color: '#000', fontWeight: 'bold', fontSize: 18, textAlign: 'center' }}>{item.name}</Text>
+                        <Text>{item.hour}</Text>
+                      </View>
+                    </CardItem>
+                  </Card>
 
+                </View>
               )
             }
-
-
-
             )
           }
-
         </Content>
       </Container>
     </ScrollView>

@@ -11,29 +11,30 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator 
-      screenOptions= {({route})=> ({
-        tabBarIcon: ({size, color})=> {
-        switch (route.name){
-        case "Home":
-          return (
-            <Ionicons name="md-home-sharp" size={size} color={color}/>
-          )
-          
-        case "Mi agenda":
-          return (
-            <Ionicons name="md-calendar-sharp" size={size} color={color}/> 
-          )
-        }
-      }})}
-      tabBarOptions= {{
-        inactiveTintColor:"rgba(0, 0, 0, 0.3)",
-        activeTintColor:"rgba(88, 71, 153, 1)"
-      }}>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ size, color }) => {
+            switch (route.name) {
+              case "Home":
+                return (
+                  <Ionicons name="md-home-sharp" size={size} color={color} />
+                )
+
+              case "Mi agenda":
+                return (
+                  <Ionicons name="md-calendar-sharp" size={size} color={color} />
+                )
+            }
+          }
+        })}
+        tabBarOptions={{
+          inactiveTintColor: "rgba(0, 0, 0, 0.3)",
+          activeTintColor: "rgba(88, 71, 153, 1)"
+        }}>
         <Tab.Screen name="Home" component={HomeStackNavigator} />
         <Tab.Screen name="Mi agenda" component={MiAgendaStackNavigation} />
       </Tab.Navigator>
-      </NavigationContainer>
+    </NavigationContainer>
   );
 }
 

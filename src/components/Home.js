@@ -47,76 +47,70 @@ const handlePressButton = async (newEvent) => {
   )
 }
 
-const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion, selectedDate}) => {
+const CardEvent = ({ objNavigate, selectCategoria, selectUbicacion, selectedDate }) => {
   console.log(selectCategoria, selectUbicacion)
   const [currCategoria, setCurrCategoria] = useState()
 
-  const filterDate = dataEvents.filter ((option) => option.date === selectedDate)
-  console.log(filterDate);
+  const filterDate = dataEvents.filter((option) => option.date === selectedDate)
 
-  const filterUbicacion = filterDate.filter((option)=> option.locality.includes(selectUbicacion))
-    console.log(filterUbicacion) 
-  
-    const filterCategoria = filterDate.filter((option) => option.category === selectCategoria)
-    console.log(filterCategoria);
+  const filterUbicacion = filterDate.filter((option) => option.locality.includes(selectUbicacion))
 
-    const filterCategoria2 = filterUbicacion.filter((option) => option.category === selectCategoria)
-    console.log(filterCategoria2);
+  const filterCategoria = filterDate.filter((option) => option.category === selectCategoria)
 
-    let dataEventsFilter;
+  const filterCategoria2 = filterUbicacion.filter((option) => option.category === selectCategoria)
 
-if(selectCategoria !== null && selectUbicacion !== null){
-      dataEventsFilter = filterCategoria2
-}/* else if (selectCategoria !== null || currCategoria !== selectCategoria) {
-  dataEventsFilter = filterCategoria
-}*/ 
-else {
-    dataEventsFilter = filterDate
-}
+  let dataEventsFilter;
 
-const getData = async () => {
-  try {
-    const jsonValue = await AsyncStorage.getItem('@storage_Date')
-   return jsonValue != null ? JSON.parse(jsonValue) : null;
-    
-  } catch(e) {
-    // error reading value
+  if (selectCategoria !== null && selectUbicacion !== null) {
+    dataEventsFilter = filterCategoria2
   }
-  
-}
-console.log(currCategoria)
-useEffect( async () => {
-    const date= await getData();
+  else {
+    dataEventsFilter = filterDate
+  }
+
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('@storage_Date')
+      return jsonValue != null ? JSON.parse(jsonValue) : null;
+
+    } catch (e) {
+    }
+
+  }
+
+  useEffect(async () => {
+    const date = await getData();
     setCurrCategoria(date)
 
-}, [])
+  }, [])
 
-  
+
   return (
     <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Content padder>{
-      dataEvents.length > 0 ? (
-        dataEventsFilter.map((events, index) => {
-          return (
-              <Card style={{ lex: 1, flexDirection: 'row', borderRadius: 20, border: 0 }} >
+        dataEvents.length > 0 ? (
+          dataEventsFilter.map((events, index) => {
+            return (
+              <Card style={{ lex: 1, flexDirection: 'row', borderRadius: 20, border: 0 }} index={index + 'e'}>
                 <CardItem>
                   <Left>
                     <Body>
-                      <Image source={{ uri:events.img }} style={{ height: 100, width: 100, flex: 1, borderRadius: 5 }} />
+                      <Image source={{ uri: events.img }} style={{ height: 100, width: 100, flex: 1, borderRadius: 5 }} />
                     </Body>
                   </Left>
                 </CardItem>
+
                 <CardItem style={{ flex: 2, flexDirection: 'column' }}>
-                  <Body style={{width:170, height:30}}>
-                    <Text style={ stylesHome.textName}>{events.name}</Text>
-                    <Text style={{textAlign: 'justify', fontSize: 12, marginRight: 10, marginBottom: 10, marginTop: 10}}>{events.details}</Text>
-                    {/* <Text style={stylesHome.textDate}>{events.date}</Text> */}
+                  <Body style={{ width: 170, height: 30 }}>
+                    <Text style={stylesHome.textName}>{events.name}</Text>
+                    <Text style={{ textAlign: 'justify', fontSize: 12, marginRight: 10, marginBottom: 10, marginTop: 10 }}>{events.details}</Text>
                   </Body>
+
                   <Body style={{ flex: 2, flexDirection: 'row' }}>
-                    <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', {events})}>
-                      <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold', alignItems: 'center'}} >Ver más</Text></TouchableOpacity>
+                    <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Evento', { events })}>
+                      <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold', alignItems: 'center' }} >Ver más</Text></TouchableOpacity>
                     <TouchableOpacity style={stylesHome.boton} onPress={() => objNavigate.navigate('Mi agenda')}>
-                    <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} onPress={() => handlePressButton({
+                      <Text style={{ textAlign: 'center', color: '#584799', fontWeight: 'bold' }} onPress={() => handlePressButton({
                         date: events.date,
                         dateName: events.dateName,
                         name: events.name,
@@ -124,89 +118,88 @@ useEffect( async () => {
                         audience: events.audience,
                         hour: events.hour
                       })}>Asistir</Text>
-              </TouchableOpacity>
+                    </TouchableOpacity>
                   </Body>
                 </CardItem>
               </Card>
-          ) 
-        }
-        )
+            )
+          }
+          )
         ) : null
       }
-    
-        
+
+
       </Content>
-      </ScrollView>
+    </ScrollView>
   )
 }
 
 
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
   const [selectedValue, setSelectedValue] = useState(null);
   const [selectedValues, setSelectedValues] = useState(null);
   const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
-  
+
   let mapCategory = dataEvents.map((element) => element.category);
   let unicoCategory = [...new Set(mapCategory)];
-  console.log(selectedDate);
- const localidades = ()=>{
+
+  const localidades = () => {
     let arrayLocality = [];
-    console.log(arrayLocality);
-    for ( let i= 0; i < dataEvents.length; i++) {
-    let localidad = dataEvents[i].locality;
-    for (let j= 0; j < localidad.length; j++){
-      let allLocality = localidad[j];
-      console.log(allLocality);
-      arrayLocality.push(allLocality);
-    }
+
+    for (let i = 0; i < dataEvents.length; i++) {
+      let localidad = dataEvents[i].locality;
+
+      for (let j = 0; j < localidad.length; j++) {
+        let allLocality = localidad[j];
+        arrayLocality.push(allLocality);
+      }
     }
     return arrayLocality
   }
-  let unicaUbicacion = [...new Set(localidades())]; 
 
+  let unicaUbicacion = [...new Set(localidades())];
 
-    return (
-
-
-<ScrollView style={{ backgroundColor: 'white' }}>
-<View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', headerTitleAlign: "center"}}>
+  return (
+    <ScrollView style={{ backgroundColor: 'white' }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', headerTitleAlign: "center" }}>
         <Image source={header} style={stylesHome.imagen} />
       </View>
       <View style={stylesHome.containerSelect} >
-      <Picker
-        selectedValue={selectedValues}
-        style={stylesHome.select} 
-        onValueChange={(itemValue, itemIndex) => setSelectedValues(itemValue)}>
-          
-        <Picker.Item label="Ubicación" value="localidad" padder/>{
-          unicaUbicacion.map((element)=>
-          <Picker.Item label={element} value={element} /> 
-          ) 
-        } 
-      </Picker>
-      <Picker
-        selectedValue={selectedValue}
-        style= {stylesHome.select} 
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)} >
-        <Picker.Item label="Categorias" value="java" padder/>{
-          unicoCategory.map((event) => 
-          <Picker.Item label={event} value={event}/>
+        <Picker
+          selectedValue={selectedValues}
+          style={stylesHome.select}
+          onValueChange={(itemValue, itemIndex) => setSelectedValues(itemValue)}>
+
+          <Picker.Item label="Ubicación" value="localidad" padder />{
+            unicaUbicacion.map((element) =>
+              <Picker.Item label={element} value={element} />
+            )
+          }
+        </Picker>
+        <Picker
+          selectedValue={selectedValue}
+          style={stylesHome.select}
+          onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)} >
+          <Picker.Item label="Categorias" value="java" padder />{
+            unicoCategory.map((event) =>
+              <Picker.Item label={event} value={event} />
             )}
-      </Picker>
+        </Picker>
       </View>
       <View>
-      <Calendar
-        setSelectedDate= {setSelectedDate}
-      >
-                
-      </Calendar>
+        <Calendar
+          setSelectedDate={setSelectedDate}
+        >
+
+        </Calendar>
       </View>
-      <CardEvent objNavigate={navigation} selectUbicacion={selectedValues} selectCategoria={selectedValue}  selectedDate={selectedDate}/>            
-  
-      </ScrollView>
-  
-        
-    ) }
+      <CardEvent objNavigate={navigation} selectUbicacion={selectedValues} selectCategoria={selectedValue} selectedDate={selectedDate} />
+
+    </ScrollView>
+
+
+  )
+}
 
 const stylesHome = StyleSheet.create({
   select: {
@@ -244,16 +237,17 @@ const stylesHome = StyleSheet.create({
   textBoton: {
     color: '#584799',
     fontSize: 17,
-    fontWeight:'600'
+    fontWeight: '600'
   },
-  textName:{
-    color: '#584799', 
-    fontWeight: '600', 
+  textName: {
+    color: '#584799',
+    fontWeight: '600',
     fontSize: 20
   },
-  textDate :{ 
+  textDate: {
     textAlign: 'justify',
-    fontSize: 15 },
+    fontSize: 15
+  },
   textDetails: {
     width: 190,
     textAlign: 'justify',

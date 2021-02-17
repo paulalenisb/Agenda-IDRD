@@ -21,14 +21,10 @@ const handlePressButton = () => {
 
 export default function Evento(events) {
   const idx = events.route.params.events;
-  console.log(idx)
-  console.log(events)
 
   return (
     <ScrollView>
-      <Container>{
-        //console.log(dataEvents[idx])
-      }
+      <Container>
         <Image
           style={styles.eventImage}
           resizeModel={'cover'}
@@ -48,7 +44,7 @@ export default function Evento(events) {
         </View>
         <Content style={{ marginLeft: 30, marginTop: -20, width: 300 }}>
           <Text style={{ fontWeight: 600, fontSize: 20, color: '#584799' }}>
-          {idx.name}
+            {idx.name}
           </Text>
           <Text>
             {idx.details}
@@ -70,7 +66,7 @@ export default function Evento(events) {
               {idx.audience}
             </Text>
           </View>
-          <Image source='https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/developIDRD/assets/logo-idrd.png?raw=true' style={{ width: 200, height:50, marginLeft: 50, marginTop: 30 }}></Image>
+          <Image source='https://github.com/Angelik4/Talent-Fest-Reto-IDRD/blob/developIDRD/assets/logo-idrd.png?raw=true' style={{ width: 200, height: 50, marginLeft: 50, marginTop: 30 }}></Image>
         </Content>
       </Container>
     </ScrollView>
