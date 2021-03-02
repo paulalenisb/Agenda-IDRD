@@ -14,7 +14,7 @@
 
 ## 1. Contexto
 
-El proyecto descrito a continuación fue desarrollado bajo el marco de la Hackaton [Talent Fest Bogotá Laboratoria](https://talentfest.laboratoria.la/bogota) para el [Instituto de Recreación y Deportes de la ciudade de Bogotá](https://www.idrd.gov.co/noticias/app-agenda-idrd-participara-la-primera-hackaton-talent-fest-colombia).
+El proyecto descrito a continuación fue desarrollado bajo el marco de la Hackaton [Talent Fest Bogotá Laboratoria](https://talentfest.laboratoria.la/bogota) para el [Instituto de Recreación y Deportes](https://www.idrd.gov.co/noticias/app-agenda-idrd-participara-la-primera-hackaton-talent-fest-colombia) de la ciudad de Bogotá]
 
 
 ## 2. Definición del problema
